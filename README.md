@@ -51,7 +51,7 @@ StarTools/
 部分工具需联网访问第三方接口，请在小程序后台「开发管理 → 开发设置 → 服务器域名」中添加以下合法域名：
 
 ```
-https://mmbiz.qpic.cn;https://res.wx.qq.com;https://apps.bdimg.com;https://fanyi.baidu.com;https://api.fanyi.baidu.com;https://whois.pconline.com.cn;https://api.btstu.cn;https://img.xjh.me
+https://mmbiz.qpic.cn;https://res.wx.qq.com;https://apps.bdimg.com;https://fanyi.baidu.com;https://api.fanyi.baidu.com;https://whois.pconline.com.cn
 ```
 
 各接口用途：
@@ -61,7 +61,6 @@ https://mmbiz.qpic.cn;https://res.wx.qq.com;https://apps.bdimg.com;https://fanyi
 - 粤语翻译发音：`https://fanyi.baidu.com`
 - 粤语翻译：`https://api.fanyi.baidu.com`
 - 查 IP 归属：`https://whois.pconline.com.cn`
-- 每日一图：`https://api.btstu.cn`、`https://img.xjh.me/random_img.php`
 
 ## 说明
 
