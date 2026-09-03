@@ -1,0 +1,31 @@
+<view class="container">
+  <scroll-view class="cat-scroll" scroll-x="true">
+    <view class="cat-list">
+      <view
+        wx:for="{{categories}}"
+        wx:key="key"
+        class="cat-item {{currentCategory === item.key ? 'cat-active' : ''}}"
+        data-key="{{item.key}}"
+        bind:tap="onCategoryTap">{{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="input-panel">
+    <input
+      class="value-input"
+      type="digit"
+      placeholder="请输入数值"
+      value="{{inputValue}}"
+      bind:input="onInput" />
+    <picker range="{{unitNames}}" value="{{unitIndex}}" bind:change="onUnitChange">
+      <view class="unit-picker">{{unitNames[unitIndex]}} <text class="arrow">▾</text></view>
+    </picker>
+  </view>
+
+  <view class="result-list">
+    <view wx:for="{{results}}" wx:key="key" class="result-item">
+      <text class="result-value">{{item.value}}</text>
+      <text class="result-unit">{{item.name}}</text>
+    </view>
+  </view>
+</view>

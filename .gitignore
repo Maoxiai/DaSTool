@@ -1,0 +1,14 @@
+# 依赖
+node_modules/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+[Dd]esktop.ini
+
+# 微信开发者工具私有配置（个人编译偏好，不入库）
+project.private.config.json
+miniprogram/project.private.config.json
+
+# 本地数据
+dump.rdb
