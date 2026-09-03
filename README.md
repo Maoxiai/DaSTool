@@ -46,6 +46,23 @@ StarTools/
 2. 将 `project.config.json` 中的 `appid` 替换为你自己的小程序 AppID
 3. 编译运行即可
 
+## 合法域名配置
+
+部分工具需联网访问第三方接口，请在小程序后台「开发管理 → 开发设置 → 服务器域名」中添加以下合法域名：
+
+```
+https://mmbiz.qpic.cn;https://res.wx.qq.com;https://apps.bdimg.com;https://fanyi.baidu.com;https://api.fanyi.baidu.com;https://whois.pconline.com.cn;https://api.btstu.cn;https://img.xjh.me
+```
+
+各接口用途：
+- 首页图标地址：`https://mmbiz.qpic.cn`
+- 清灰音频：`https://res.wx.qq.com`
+- 测速：`https://apps.bdimg.com`
+- 粤语翻译发音：`https://fanyi.baidu.com`
+- 粤语翻译：`https://api.fanyi.baidu.com`
+- 查 IP 归属：`https://whois.pconline.com.cn`
+- 每日一图：`https://api.btstu.cn`、`https://img.xjh.me/random_img.php`
+
 ## 说明
 
 - 未开通流量主，已移除全部广告位
