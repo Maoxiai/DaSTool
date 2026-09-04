@@ -1,0 +1,6 @@
+<view class="about {{darkMode ? 'dark' : ''}}">
+  <view class="about-logo">DaS</view>
+  <view class="about-name">DaS云芯</view>
+  <view class="about-version">版本 V{{version}}</view>
+  <view class="about-desc">聚合型工具箱小程序，日常小工具集合</view>
+</view>

@@ -1,16 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/home/me/index"
+    "pages/home/me/index",
+    "pages/about/about"
   ],
   "subPackages": [
     {
       "root": "pages/my_module",
       "name": "tools",
       "pages": [
-        "flag/index",
-        "eat/index",
-        "eat/edit_eat",
         "money/index",
         "qh/index",
         "calc_relative/index",
@@ -19,21 +17,10 @@
         "calc_mortgage/index",
         "calc_mortgage/detail",
         "bmi/bmi",
-        "bigWheel/bigWheel",
-        "bigWheel/bigWheelSetting/bigWheelSetting",
-        "bigWheel/chooseItem/chooseItem",
-        "bigWheel/edit/edit",
-        "screenshotConnect/screenshotConnect",
-        "screenshotConnect/showImage",
-        "danmu/danmu",
-        "danmu/show_danmu",
         "ruler/ruler",
-        "cuttingNine/cuttingNine",
         "createQrcode/createQrcode",
         "scanQrcode/scanQrcode",
         "calc_size/index",
-        "ip_info/index",
-        "count_money/money",
         "blood/blood",
         "zhendong/index",
         "life_time/life_time",
@@ -41,20 +28,24 @@
         "blind/blind",
         "clock/clock",
         "countDown/countDown",
-        "timejs/add",
-        "timejs/detail",
-        "timejs/index",
         "randomNum/randomNum",
         "phone/phone",
         "oil_price/index",
         "protractor/protractor",
         "networkSpeed/networkSpeed",
         "yueyu/index",
-        "quse/color",
-        "quse/detail",
-        "quse/index",
-        "crypt/crypt",
-        "crypt/decrypt"
+        "ne555/ne555",
+        "resistor/resistor",
+        "converter/converter",
+        "divider/divider",
+        "timer/timer",
+        "protocol/protocol",
+        "units/units",
+        "led/led",
+        "ohm/ohm",
+        "rc/rc",
+        "adc/adc",
+        "battery/battery"
       ]
     }
   ],

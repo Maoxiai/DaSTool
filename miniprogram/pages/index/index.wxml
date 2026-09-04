@@ -1,18 +1,52 @@
 <!--pages/home/home/index.wxml-->
-<scroll-view class="container" scroll-y="true">
+<view class="container {{darkMode ? 'dark' : ''}}">
   <view wx:if="{{!appData.isRelease&&user.extend.topMessage}}" class="top_info">
     <view style="white-space: pre-wrap;">{{user.extend.topMessage}}</view>
   </view>
-  <view class="items-list-wrap">
-    <block wx:for="{{classlist}}" wx:for-item="item" wx:key="index">
-      <view class="item-list-wrap" data-id="{{item}}" bind:tap="selectTop">
-        <view class="item_left">
-          <text></text>
-          <text class="item_level">{{item.sort}}</text>
+
+  <!-- 分类 tab -->
+  <scroll-view class="tabs" scroll-x="true" enable-flex="true">
+    <view class="tabs-inner">
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="tab {{activeCategory === item.id ? 'active' : ''}}"
+        bindtap="onSwitchCategory"
+        data-id="{{item.id}}"
+      >{{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 内容区 -->
+  <scroll-view class="content" scroll-y="true">
+    <!-- 热门：卡片列表 -->
+    <view class="card-list" wx:if="{{viewMode === 'card'}}">
+      <view class="card" wx:for="{{classlist}}" wx:key="type" data-id="{{item}}" bind:tap="selectTop">
+        <view class="card-icon">
+          <image wx:if="{{item.iconType === 'image'}}" class="card-icon-img" src="{{item.icon}}"></image>
+          <text wx:else class="card-emoji">{{item.icon}}</text>
         </view>
-        <image class="imgs data-v-8d1cd75a" lazyLoad="{{true}}" src="{{item.icon}}"></image>
-        <text class="item_name">{{item.name}}</text>
+        <view class="card-body">
+          <text class="card-name">{{item.name}}</text>
+          <text class="card-desc">{{item.des}}</text>
+        </view>
+        <text class="card-arrow">›</text>
       </view>
-    </block>
-  </view>
-</scroll-view>
+    </view>
+
+    <!-- 分类：宫格列表 -->
+    <view class="items-list-wrap" wx:else>
+      <block wx:for="{{classlist}}" wx:for-item="item" wx:key="type">
+        <view class="item-list-wrap" data-id="{{item}}" bind:tap="selectTop">
+          <view class="item_left">
+            <text></text>
+            <text class="item_level">{{item.count}}</text>
+          </view>
+          <image wx:if="{{item.iconType === 'image'}}" class="imgs data-v-8d1cd75a" lazyLoad="{{true}}" src="{{item.icon}}"></image>
+          <text wx:else class="imgs emoji-icon">{{item.icon}}</text>
+          <text class="item_name">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

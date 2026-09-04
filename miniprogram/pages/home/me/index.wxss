@@ -1,29 +1,30 @@
 /* pages/home/me/index.wxss */
-.bottom {
-  position: absolute;
-  bottom: 10px;
+.container {
   width: 100%;
+  padding: 24rpx;
+  padding-bottom: 60rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 用户卡片 */
+.user-card {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 48rpx 30rpx 36rpx;
   display: flex;
-}
-
-.version {
-  width: 100%;
-  font-size: 30rpx;
-  text-align: center;
-}
-
-.top {
   flex-direction: column;
-  text-align: center;
-  font-size: 32rpx;
-  margin-top: 30rpx;
+  align-items: center;
+  margin-bottom: 24rpx;
 }
 
 .avatar-btn {
   padding: 0;
   margin: 0 auto;
-  width: 70px;
-  height: 70px;
+  width: 140rpx;
+  height: 140rpx;
   border-radius: 50%;
   background-color: transparent;
   border: none;
@@ -34,30 +35,130 @@
   border: none;
 }
 
-.head_img {
-  width: 70px;
-  height: 70px;
-  background-color: #eeeeee;
+.head-img {
+  width: 140rpx;
+  height: 140rpx;
+  background-color: #eee;
   border-radius: 50%;
-}
-
-.user_name {
-  margin: 10rpx 0 40rpx;
 }
 
 .nickname-input {
   text-align: center;
-  font-size: 32rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-top: 20rpx;
   min-height: 44rpx;
   width: 100%;
 }
 
-.button {
-  margin-top: 12rpx;
-  text-align: left;
-  font-size: 32rpx;
-  background-color: white;
+.nickname-text {
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-top: 20rpx;
+  min-height: 44rpx;
+  color: #333;
+}
+
+.quote {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+}
+
+/* 分组 */
+.group {
   width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  margin-bottom: 24rpx;
+}
+
+/* cell */
+.cell {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100rpx;
+  padding: 0 30rpx;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  line-height: 1;
+  font-size: 30rpx;
   text-align: left;
-  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.cell::after {
+  border: none;
+}
+
+.cell-hover {
+  background: #f5f5f5;
+}
+
+.cell-icon {
+  width: 48rpx;
+  font-size: 36rpx;
+  margin-right: 20rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.cell-title {
+  flex: 1;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.cell-arrow {
+  color: #ccc;
+  font-size: 40rpx;
+  margin-left: 10rpx;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cell-switch {
+  margin-left: 10rpx;
+  flex-shrink: 0;
+}
+
+.cell-divider {
+  height: 1rpx;
+  background: #f2f3f5;
+  margin-left: 98rpx;
+}
+
+/* 深色模式 */
+.dark {
+  background-color: #1f1f1f;
+}
+
+.dark .user-card,
+.dark .group {
+  background: #2a2a2a;
+}
+
+.dark .nickname-input,
+.dark .nickname-text,
+.dark .cell-title {
+  color: #e5e5e5;
+}
+
+.dark .quote {
+  color: #999;
+}
+
+.dark .cell-hover {
+  background: #333;
+}
+
+.dark .cell-divider {
+  background: #3a3a3a;
 }

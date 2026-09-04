@@ -15,7 +15,8 @@ const CATEGORY = {
   INFO: { id: 3, name: '信息查询' },
   COMMON: { id: 4, name: '常用工具' },
   IMAGE: { id: 5, name: '图片处理' },
-  ENTERTAINMENT: { id: 6, name: '娱乐工具' }
+  ENTERTAINMENT: { id: 6, name: '娱乐工具' },
+  EMBEDDED: { id: 7, name: '嵌入式工具' }
 };
 
 /**
@@ -45,34 +46,34 @@ const TOOLS = [
   { path: '/pages/my_module/protractor/protractor', name: '量角器', des: '量角器', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExicBVIpY8NJho1afRzl9wRoKefo3YBWJI7TnWsfm7L5gc125a2ULNYHA/0?wx_fmt=png', typeId: 2, typeName: '测算工具', sort: 13, type: 'protractor' },
   { path: '/pages/my_module/bmi/bmi', name: 'BMI计算器', des: 'bmi', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExkABNbQkOr9Z4Rnkl8MTiavuqhbNf8Bicts7iaWyy7hg72iaT6FDkcvHZ7A/0?wx_fmt=png', typeId: 2, typeName: '测算工具', sort: 12, type: 'bmi' },
   // 信息查询
-  { path: '/pages/my_module/eat/index', name: '今天吃什么', des: '今天吃什么', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExKsoKhxOHicbYiaPBibkmmyZ9xLWen02OP9Mc5DtSnFBWQVY4Upy8SDl4g/0?wx_fmt=png', typeId: 3, typeName: '信息查询', sort: 10201, type: 'eat' },
   { path: '/pages/my_module/yueyu/index', name: '粤语翻译', des: '粤语翻译', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrREx6YGNCiaEPJuRmoLhI09j1gEJ7P5GulibCfRiagDycfsX18wfmic4RPVTRA/0?wx_fmt=png', typeId: 3, typeName: '信息查询', sort: 10039, type: 'yueyu' },
-  { path: '/pages/my_module/ip_info/index', name: 'Ip查询', des: 'Ip查询', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExdcxFsBj9G7zlwLDNOV4fcLWY6g9PEfCbttsic1MmzcJX4U2AFp7P2tg/0?wx_fmt=png', typeId: 3, typeName: '信息查询', sort: 21, type: 'ip_info' },
   { path: '/pages/my_module/phone/phone', name: '常用号码', des: '常用号码', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExo6gFe8YZFeLtreNTUSAjHzQBXiaVEPqEY08mNx5MB9dUgViahjkJrmsA/0?wx_fmt=png', typeId: 3, typeName: '信息查询', sort: 19, type: 'phone' },
   { path: '/pages/my_module/oil_price/index', name: '今日油价', des: '今日油价', icon: '/images/oil_price.svg', typeId: 3, typeName: '信息查询', sort: 28, type: 'oil_price' },
-  // 图片处理
-  { path: '/pages/my_module/flag/index', name: '国旗头像', des: '国旗头像制作', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExj30pb3goE7AlK8xibkopNDwlMicXAuYSs1scoWYe8sMnLaHjAqN2vrzA/0?wx_fmt=png', typeId: 5, typeName: '图片处理', sort: 12032, type: 'flag' },
-  { path: '/pages/my_module/screenshotConnect/screenshotConnect', name: '图片拼接', des: '图片拼接', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExE7CJh4GVGQTZJBqxDvOHZ0k5v9wLhVA6iaoak3AP4f3LSmyeWJKqMqg/0?wx_fmt=png', typeId: 5, typeName: '图片处理', sort: 17, type: 'screenshotConnect' },
-  { path: '/pages/my_module/cuttingNine/cuttingNine', name: '九宫格切图', des: '九宫格切图', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExcFAmA6sNfLic8TqU8xysqYlYWIibvUlfMUNtsoAfksyAQCCE9fIAkD7w/0?wx_fmt=png', typeId: 5, typeName: '图片处理', sort: 11, type: 'cuttingNine' },
   // 常用工具
-  { path: '/pages/my_module/timejs/index', name: '节日倒计时', des: '节日倒计时', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExB0ZnfOUoibI1pybZSetK3hWuk35AwngjCyz4YJyF86on4k5ztmGJLPg/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 34, type: 'timejs' },
   { path: '/pages/my_module/unit_converter/index', name: '单位换算', des: '单位换算', icon: '/images/unit_converter.svg', typeId: 4, typeName: '常用工具', sort: 38, type: 'unit_converter' },
   { path: '/pages/my_module/qh/index', name: '手机清灰', des: '手机清灰', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExR9HpNEg866bZSnh7p9cqqyItK8sTAicpFn4NBZWzfbeOaZnibVzAibdFA/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 25, type: 'qh' },
   { path: '/pages/my_module/randomNum/randomNum', name: '随机数', des: '随机数', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExmSLY4KdvUUz5Hj7Y3QRicZmKMYLyh2ia471RCPtPBzpTAOShVicQdGrVw/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 20, type: 'randomNum' },
-  { path: '/pages/my_module/bigWheel/bigWheel', name: '大转盘', des: '大转盘', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExG9jYd34pbJDvxsTdfmRsCUdGlZxVDCO0AQicQL16Oib3IhkyiaeIbZrjw/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 19, type: 'bigWheel' },
   { path: '/pages/my_module/clock/clock', name: '全屏时钟', des: '全屏时钟', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExvbibmw02f9OkOddEkkl9pLuhKcHPdVFfiaQXDWdzCmD3nFUG3yAS4PrQ/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 17, type: 'clock' },
-  { path: '/pages/my_module/quse/index', name: '取色器', des: '取色器', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrREx4dwpV26hicTzH0ZmHjWJln0ia6EG0gcq6Tj4eAUJfA0P0dZQWy4OOdWg/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 17, type: 'quse' },
-  { path: '/pages/my_module/crypt/decrypt', name: '文本解密', des: '文本解密', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExW5rdXcicxibAfzH0x4ibOzBQt8KPwF8qEahy27iccH22jWjVmF8b3nWqibA/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 16, type: 'decrypt' },
-  { path: '/pages/my_module/danmu/danmu', name: '弹幕', des: '弹幕', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrREx4XGibicFeGKB3QJ0TcLMCXBr9XXW7Av4bfqw2weuwPlYEsr7nc2yeZ0A/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 15, type: 'danmu' },
   { path: '/pages/my_module/zhendong/index', name: '震动', des: '震动', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExqBzjm2pjBddoxUucITxY1MqvnoyZEHOic8aaIzYRnsEdfD4v95deofw/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 15, type: 'zhendong' },
   { path: '/pages/my_module/createQrcode/createQrcode', name: '二维码创建', des: '二维码创建', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExy2ffasI0lpv51nhY5rhoiaQhHzib4CT71SH7Y53Pc28GQmXUbNrlORtA/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 13, type: 'createQrcode' },
-  { path: '/pages/my_module/crypt/crypt', name: '文本加密', des: '文本加密', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExgWuQKyicUvRsFUsQQjFsfNLV8cEAnD6NS0sMnC0RMamnb9udepdkiaUQ/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 12, type: 'crypt' },
   { path: '/pages/my_module/countDown/countDown', name: '倒计时', des: '倒计时', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExAXfHaTfjFq8Bt5qTQ1zeo2kyianJjRej2ML16LJXh0VagYHGJOUhMLg/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 7, type: 'countDown' },
   { path: '/pages/my_module/scanQrcode/scanQrcode', name: '二维码识别', des: '二维码识别', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExAQFM979ncPl52xQLZYuic72YZF7slqam6gYGtaSAQWQ1BrCJEOXgWPg/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 6, type: 'scanQrcode' },
   // 娱乐工具
   { path: '/pages/my_module/eglfq/index', name: '恶搞理发器', des: '恶搞理发器', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExKNPVbnTlttGtic0yvxyGicEhpzMYUC3uv2JgEG76lzv2fuRRnv0nT29Q/0?wx_fmt=png', typeId: 6, typeName: '娱乐工具', sort: 17, type: 'eglfq' },
   { path: '/pages/my_module/money/index', name: '插电充钱', des: '插电充钱', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExNZicJKpkh4dTWVuicZicJ9g59OEmSkIVY0jdiagZfHd1JpDm2cJ4nR438g/0?wx_fmt=png', typeId: 6, typeName: '娱乐工具', sort: 14, type: 'money' },
-  { path: '/pages/my_module/count_money/money', name: '数钱', des: '数钱', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrREx1FXVf32zWNUdrKhKrjWib4bhg1gVDvgkTKwMyFBjay2KhrXl5ia8JZfA/0?wx_fmt=png', typeId: 6, typeName: '娱乐工具', sort: 13, type: 'count_money' }
+  // 嵌入式工具
+  { path: '/pages/my_module/resistor/resistor', name: '色环电阻计算', des: '4/5/6 环阻值识读', icon: '🎨', typeId: 7, typeName: '嵌入式工具', sort: 30, type: 'resistor' },
+  { path: '/pages/my_module/converter/converter', name: '进制转换', des: 'HEX/DEC/BIN/OCT', icon: '🔢', typeId: 7, typeName: '嵌入式工具', sort: 28, type: 'converter' },
+  { path: '/pages/my_module/divider/divider', name: '分压计算', des: '任填三项求第四项', icon: '⚡', typeId: 7, typeName: '嵌入式工具', sort: 26, type: 'divider' },
+  { path: '/pages/my_module/timer/timer', name: '定时器计算', des: 'STM32 PSC/ARR', icon: '⏱️', typeId: 7, typeName: '嵌入式工具', sort: 24, type: 'timer' },
+  { path: '/pages/my_module/protocol/protocol', name: '协议速查', des: 'UART/SPI/I2C/CAN', icon: '📡', typeId: 7, typeName: '嵌入式工具', sort: 22, type: 'protocol' },
+  { path: '/pages/my_module/units/units', name: '电子单位换算', des: 'dBm/频率/波特率', icon: '📏', typeId: 7, typeName: '嵌入式工具', sort: 20, type: 'units' },
+  { path: '/pages/my_module/led/led', name: 'LED 限流电阻', des: '阻值计算与推荐', icon: '💡', typeId: 7, typeName: '嵌入式工具', sort: 18, type: 'led' },
+  { path: '/pages/my_module/ohm/ohm', name: '欧姆定律', des: 'V/I/R/P 任填两项', icon: '🔌', typeId: 7, typeName: '嵌入式工具', sort: 16, type: 'ohm' },
+  { path: '/pages/my_module/rc/rc', name: 'RC 时间常数', des: '充放电与滤波频率', icon: '⏳', typeId: 7, typeName: '嵌入式工具', sort: 14, type: 'rc' },
+  { path: '/pages/my_module/adc/adc', name: 'ADC 换算', des: '读数与电压互转', icon: '📊', typeId: 7, typeName: '嵌入式工具', sort: 12, type: 'adc' },
+  { path: '/pages/my_module/ne555/ne555', name: '555 定时器', des: '无稳态/单稳态', icon: '🕐', typeId: 7, typeName: '嵌入式工具', sort: 10, type: 'ne555' },
+  { path: '/pages/my_module/battery/battery', name: '电池续航', des: '容量与续航估算', icon: '🔋', typeId: 7, typeName: '嵌入式工具', sort: 8, type: 'battery' }
 ];
 
 module.exports = {

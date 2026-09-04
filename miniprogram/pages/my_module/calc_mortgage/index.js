@@ -46,7 +46,7 @@ Page({
   onLoad: function () {
     let currentDate = new Date();
     let paymentYearArr = [];
-    for (let i = 1; i <= 30; i++) {
+    for (let i = 1; i <= 40; i++) {
       paymentYearArr.push({
         value: i,
         text: `${i}年 (${i * 12}月)`

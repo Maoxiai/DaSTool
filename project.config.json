@@ -39,7 +39,10 @@
     "useStaticServer": true,
     "ignoreUploadUnusedFiles": true,
     "useApiHook": false,
-    "useApiHostProcess": false
+    "useApiHostProcess": false,
+    "compileWorklet": false,
+    "localPlugins": false,
+    "condition": false
   },
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "condition": {
@@ -70,5 +73,6 @@
     "ignore": [],
     "include": []
   },
-  "appid": "wxe77a050da39e2675"
+  "appid": "wx62b0751f24833f64",
+  "simulatorPluginLibVersion": {}
 }
