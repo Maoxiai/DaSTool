@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="header">
+    <picker range="{{provinces}}" value="{{provinceIndex}}" bind:change="onProvinceChange">
+      <view class="province-picker">{{currentProvince}} <text class="arrow">▾</text></view>
+    </picker>
+    <text class="update-time" wx:if="{{updateTime}}">更新于 {{updateTime}}</text>
+  </view>
+
+  <view class="oil-list" wx:if="{{priceList.length}}">
+    <view class="oil-item" wx:for="{{priceList}}" wx:key="name">
+      <text class="oil-name">{{item.name}}</text>
+      <view class="oil-right">
+        <view class="oil-price">￥{{item.price}}/升</view>
+        <view class="oil-change {{item.changeType === 'up' ? 'change-up' : (item.changeType === 'down' ? 'change-down' : 'change-flat')}}">{{item.changeText}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{!loading && !priceList.length}}">暂无数据，请切换省份或稍后重试</view>
+</view>

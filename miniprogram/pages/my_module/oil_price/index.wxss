@@ -1,0 +1,85 @@
+.container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 30rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.province-picker {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.province-picker .arrow {
+  color: #999;
+  font-weight: normal;
+}
+
+.update-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.oil-list {
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.oil-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 30rpx;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
+.oil-item:last-child {
+  border-bottom: none;
+}
+
+.oil-name {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.oil-right {
+  text-align: right;
+}
+
+.oil-price {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.oil-change {
+  font-size: 24rpx;
+}
+
+.change-up {
+  color: #f5222d;
+}
+
+.change-down {
+  color: #52c41a;
+}
+
+.change-flat {
+  color: #999;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+  padding: 60rpx 0;
+  font-size: 28rpx;
+}

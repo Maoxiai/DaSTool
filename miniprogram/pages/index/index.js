@@ -1,4 +1,4 @@
-let jsonData = require('data.js');
+const { TOOLS } = require('../../config/tools.js');
 Page({
 
   /**
@@ -73,7 +73,7 @@ Page({
 
   //获取功能列表
   getListInfo() {
-    let source = jsonData.data.result[0].itemsList;
+    let source = TOOLS;
     // 拷贝并按 sort 降序稳定排序，sort 相同时保持数据源中的原始顺序，保证位置固定
     let list = source
       .map((item, index) => ({ item, index }))
