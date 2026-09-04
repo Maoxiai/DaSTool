@@ -51,6 +51,7 @@ const TOOLS = [
   { path: '/pages/my_module/oil_price/index', name: '今日油价', des: '今日油价', icon: '/images/oil_price.svg', typeId: 3, typeName: '信息查询', sort: 28, type: 'oil_price' },
   // 常用工具
   { path: '/pages/my_module/unit_converter/index', name: '单位换算', des: '单位换算', icon: '/images/unit_converter.svg', typeId: 4, typeName: '常用工具', sort: 38, type: 'unit_converter' },
+  { path: '/pages/my_module/color/index', name: '颜色工具', des: 'RGB/HEX 互转 · 色卡 · 配色 · 国风色', icon: '🌈', typeId: 4, typeName: '常用工具', sort: 30, type: 'color' },
   { path: '/pages/my_module/qh/index', name: '手机清灰', des: '手机清灰', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExR9HpNEg866bZSnh7p9cqqyItK8sTAicpFn4NBZWzfbeOaZnibVzAibdFA/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 25, type: 'qh' },
   { path: '/pages/my_module/randomNum/randomNum', name: '随机数', des: '随机数', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExmSLY4KdvUUz5Hj7Y3QRicZmKMYLyh2ia471RCPtPBzpTAOShVicQdGrVw/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 20, type: 'randomNum' },
   { path: '/pages/my_module/clock/clock', name: '全屏时钟', des: '全屏时钟', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExvbibmw02f9OkOddEkkl9pLuhKcHPdVFfiaQXDWdzCmD3nFUG3yAS4PrQ/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 17, type: 'clock' },

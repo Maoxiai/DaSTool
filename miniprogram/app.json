@@ -45,7 +45,8 @@
         "ohm/ohm",
         "rc/rc",
         "adc/adc",
-        "battery/battery"
+        "battery/battery",
+        "color/index"
       ]
     }
   ],

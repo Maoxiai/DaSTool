@@ -1,0 +1,234 @@
+<view class="container">
+  <scroll-view class="cat-scroll" scroll-x="true">
+    <view class="cat-list">
+      <view
+        wx:for="{{tabs}}"
+        wx:key="key"
+        class="cat-item {{currentTab === item.key ? 'cat-active' : ''}}"
+        data-key="{{item.key}}"
+        bind:tap="onTabTap">{{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <scroll-view class="content" scroll-y="true">
+    <view class="content-inner">
+      <!-- 颜色转换 -->
+      <view wx:if="{{currentTab === 'convert'}}">
+        <view class="preview" style="background-color: {{previewColor}};">
+          <view class="preview-tag">{{hex}}</view>
+        </view>
+
+        <view class="block">
+          <text class="block-title">RGB</text>
+          <view class="rgb-row">
+            <view class="rgb-item">
+              <text class="rgb-label">R</text>
+              <input class="rgb-input" type="number" value="{{r}}" bind:input="onRInput" />
+            </view>
+            <view class="rgb-item">
+              <text class="rgb-label">G</text>
+              <input class="rgb-input" type="number" value="{{g}}" bind:input="onGInput" />
+            </view>
+            <view class="rgb-item">
+              <text class="rgb-label">B</text>
+              <input class="rgb-input" type="number" value="{{b}}" bind:input="onBInput" />
+            </view>
+          </view>
+        </view>
+
+        <view class="block">
+          <text class="block-title">HEX</text>
+          <view class="hex-row">
+            <input class="hex-input" value="{{hex}}" bind:input="onHexInput" />
+            <view class="copy-btn" data-hex="{{hex}}" bind:tap="onCopyColor">复制</view>
+          </view>
+        </view>
+
+        <view class="block">
+          <text class="block-title">HSL</text>
+          <view class="rgb-row">
+            <view class="rgb-item">
+              <text class="rgb-label">H</text>
+              <input class="rgb-input" type="number" value="{{h}}" bind:input="onHInput" />
+            </view>
+            <view class="rgb-item">
+              <text class="rgb-label">S%</text>
+              <input class="rgb-input" type="number" value="{{s}}" bind:input="onSInput" />
+            </view>
+            <view class="rgb-item">
+              <text class="rgb-label">L%</text>
+              <input class="rgb-input" type="number" value="{{l}}" bind:input="onLInput" />
+            </view>
+          </view>
+        </view>
+
+        <view class="block">
+          <text class="block-title">HSV（参考）</text>
+          <text class="hsv-text">{{hsvText}}</text>
+        </view>
+      </view>
+
+      <!-- 国风色 -->
+      <view wx:if="{{currentTab === 'chinese'}}" class="chinese-grid">
+        <view
+          wx:for="{{chineseColors}}"
+          wx:key="hex"
+          class="chinese-item"
+          data-hex="{{item.hex}}"
+          data-name="{{item.name}}"
+          bind:tap="onCopyColor">
+          <view class="chinese-swatch" style="background-color: {{item.hex}};">
+            <text class="chinese-hex">{{item.hex}}</text>
+          </view>
+          <text class="chinese-name">{{item.name}}</text>
+          <text class="chinese-desc">{{item.desc}}</text>
+        </view>
+      </view>
+
+      <!-- 颜色识别 -->
+      <view wx:if="{{currentTab === 'identify'}}">
+        <view class="block">
+          <text class="block-title">输入颜色</text>
+          <view class="hex-row">
+            <input class="hex-input" value="{{identifyHex}}" bind:input="onIdentifyInput" />
+            <view class="copy-btn" data-hex="{{identifyHex}}" bind:tap="onCopyColor">复制</view>
+          </view>
+        </view>
+
+        <view wx:if="{{identifyResult}}" class="identify-card">
+          <view class="identify-swatch" style="background-color: {{identifyResult.hex}};">
+            <text class="identify-swatch-name">{{identifyResult.name}}</text>
+          </view>
+          <view class="identify-info">
+            <text class="identify-name">{{identifyResult.name}}</text>
+            <text class="identify-desc">{{identifyResult.desc}}</text>
+            <view class="identify-meta">
+              <text class="identify-hex">{{identifyResult.hex}}</text>
+              <text class="identify-sim">匹配度 {{identifyResult.sim}}%</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="block">
+          <text class="block-title">相近国风色</text>
+          <view wx:for="{{identifyTop}}" wx:key="hex" class="identify-row"
+            data-hex="{{item.hex}}" data-name="{{item.name}}" bind:tap="onCopyColor">
+            <view class="identify-row-swatch" style="background-color: {{item.hex}};"></view>
+            <view class="identify-row-info">
+              <text class="identify-row-name">{{item.name}}</text>
+              <text class="identify-row-desc">{{item.desc}}</text>
+            </view>
+            <view class="identify-row-right">
+              <text class="identify-row-hex">{{item.hex}}</text>
+              <text class="identify-row-sim">{{item.sim}}%</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 色卡 -->
+      <view wx:if="{{currentTab === 'basic'}}" class="grid">
+        <view
+          wx:for="{{basicColors}}"
+          wx:key="hex"
+          class="grid-item"
+          data-hex="{{item.hex}}"
+          data-name="{{item.name}}"
+          bind:tap="onCopyColor">
+          <view class="grid-swatch" style="background-color: {{item.hex}};"></view>
+          <text class="grid-name">{{item.name}}</text>
+          <text class="grid-hex">{{item.hex}}</text>
+        </view>
+      </view>
+
+      <!-- 配色推荐 -->
+      <view wx:if="{{currentTab === 'scheme'}}" class="scheme-list">
+        <view wx:for="{{schemes}}" wx:key="name" class="scheme-card">
+          <text class="scheme-name">{{item.name}}</text>
+          <view class="scheme-colors">
+            <view
+              wx:for="{{item.colors}}"
+              wx:for-item="c"
+              wx:key="*this"
+              class="scheme-swatch"
+              style="background-color: {{c}};"
+              data-hex="{{c}}"
+              bind:tap="onCopyColor">
+              <text class="scheme-hex">{{c}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 色彩和谐 -->
+      <view wx:if="{{currentTab === 'harmony'}}">
+        <view class="block">
+          <text class="block-title">输入颜色</text>
+          <view class="hex-row">
+            <input class="hex-input" value="{{harmonyHex}}" bind:input="onHarmonyInput" />
+            <view class="copy-btn" data-hex="{{harmonyHex}}" bind:tap="onCopyColor">复制</view>
+          </view>
+        </view>
+
+        <view class="harmony-grid">
+          <view
+            wx:for="{{harmonyColors}}"
+            wx:key="hex"
+            class="harmony-item"
+            data-hex="{{item.hex}}"
+            data-name="{{item.name}}"
+            bind:tap="onCopyColor">
+            <view class="harmony-swatch" style="background-color: {{item.hex}};">
+              <text class="harmony-hex">{{item.hex}}</text>
+            </view>
+            <text class="harmony-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 渐变生成 -->
+      <view wx:if="{{currentTab === 'gradient'}}">
+        <view class="block">
+          <text class="block-title">起始色</text>
+          <input class="hex-input" value="{{gradFrom}}" bind:input="onGradFromInput" />
+        </view>
+        <view class="block">
+          <text class="block-title">结束色</text>
+          <input class="hex-input" value="{{gradTo}}" bind:input="onGradToInput" />
+        </view>
+        <view class="block">
+          <text class="block-title">方向</text>
+          <picker range="{{gradDirections}}" value="{{gradIndex}}" bind:change="onGradDirChange">
+            <view class="unit-picker">{{gradDirections[gradIndex]}} <text class="arrow">▾</text></view>
+          </picker>
+        </view>
+
+        <view class="gradient-preview" style="background: {{gradientStyle}};"></view>
+
+        <view class="block">
+          <text class="block-title">CSS 代码</text>
+          <view class="code-box">
+            <text class="code-text">{{gradientCss}}</text>
+          </view>
+          <view class="copy-btn-full" data-code="{{gradientCss}}" bind:tap="onCopyCode">复制代码</view>
+        </view>
+      </view>
+
+      <!-- 随机配色 -->
+      <view wx:if="{{currentTab === 'random'}}">
+        <view class="random-swatches">
+          <view
+            wx:for="{{randomColors}}"
+            wx:key="*this"
+            class="random-swatch"
+            style="background-color: {{item}};"
+            data-hex="{{item}}"
+            bind:tap="onCopyColor">
+            <text class="random-hex">{{item}}</text>
+          </view>
+        </view>
+        <view class="random-btn" bind:tap="onRandomRefresh">换一批配色</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
