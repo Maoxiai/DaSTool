@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="phase-tag">
+    <text class="phase-text">{{phaseText}}</text>
+  </view>
+
+  <view class="time-box">
+    <text class="time-text">{{timeText}}</text>
+  </view>
+
+  <view class="progress-bar">
+    <view class="progress-inner" style="width: {{progress}}%;"></view>
+  </view>
+
+  <view class="controls">
+    <view class="btn-main" bind:tap="onStartPause">{{running ? '暂停' : '开始'}}</view>
+    <view class="btn-reset" bind:tap="onReset">重置</view>
+  </view>
+
+  <view class="settings">
+    <view class="setting-row">
+      <text class="setting-label">工作时长</text>
+      <picker range="{{workOptions}}" value="{{workIndex}}" bind:change="onWorkChange">
+        <text class="setting-value">{{workMin}} 分钟 ▾</text>
+      </picker>
+    </view>
+    <view class="setting-row">
+      <text class="setting-label">休息时长</text>
+      <picker range="{{breakOptions}}" value="{{breakIndex}}" bind:change="onBreakChange">
+        <text class="setting-value">{{breakMin}} 分钟 ▾</text>
+      </picker>
+    </view>
+  </view>
+</view>

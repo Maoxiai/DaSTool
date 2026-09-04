@@ -52,6 +52,9 @@ const TOOLS = [
   // 常用工具
   { path: '/pages/my_module/unit_converter/index', name: '单位换算', des: '单位换算', icon: '/images/unit_converter.svg', typeId: 4, typeName: '常用工具', sort: 38, type: 'unit_converter' },
   { path: '/pages/my_module/color/index', name: '颜色工具', des: 'RGB/HEX 互转 · 色卡 · 配色 · 国风色', icon: '🌈', typeId: 4, typeName: '常用工具', sort: 30, type: 'color' },
+  { path: '/pages/my_module/size_converter/index', name: '尺码换算', des: '鞋码 · 服装尺码', icon: '👟', typeId: 4, typeName: '常用工具', sort: 24, type: 'size_converter' },
+  { path: '/pages/my_module/date_calc/index', name: '日期计算器', des: '日期差 · 年龄 · 倒计时', icon: '📅', typeId: 4, typeName: '常用工具', sort: 22, type: 'date_calc' },
+  { path: '/pages/my_module/pomodoro/index', name: '番茄钟', des: '专注计时 · 工作/休息', icon: '🍅', typeId: 4, typeName: '常用工具', sort: 21, type: 'pomodoro' },
   { path: '/pages/my_module/qh/index', name: '手机清灰', des: '手机清灰', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExR9HpNEg866bZSnh7p9cqqyItK8sTAicpFn4NBZWzfbeOaZnibVzAibdFA/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 25, type: 'qh' },
   { path: '/pages/my_module/randomNum/randomNum', name: '随机数', des: '随机数', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExmSLY4KdvUUz5Hj7Y3QRicZmKMYLyh2ia471RCPtPBzpTAOShVicQdGrVw/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 20, type: 'randomNum' },
   { path: '/pages/my_module/clock/clock', name: '全屏时钟', des: '全屏时钟', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExvbibmw02f9OkOddEkkl9pLuhKcHPdVFfiaQXDWdzCmD3nFUG3yAS4PrQ/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 17, type: 'clock' },

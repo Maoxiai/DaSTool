@@ -1,0 +1,103 @@
+.container {
+  padding: 20rpx;
+}
+
+.cat-scroll {
+  white-space: nowrap;
+}
+
+.cat-list {
+  display: inline-flex;
+}
+
+.cat-item {
+  display: inline-block;
+  padding: 12rpx 28rpx;
+  margin-right: 16rpx;
+  font-size: 28rpx;
+  color: #333;
+  background-color: #f2f3f5;
+  border-radius: 40rpx;
+}
+
+.cat-active {
+  color: #fff;
+  background-color: #ff5f15;
+}
+
+.panel {
+  margin-top: 24rpx;
+  padding: 24rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+}
+
+.panel-title {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.date-picker {
+  margin-top: 12rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  padding: 12rpx 20rpx;
+  background-color: #f2f3f5;
+  border-radius: 12rpx;
+  display: inline-block;
+}
+
+.arrow {
+  color: #999;
+}
+
+.result-panel {
+  margin-top: 24rpx;
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  text-align: center;
+}
+
+.result-big {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #ff5f15;
+}
+
+.result-unit {
+  font-size: 28rpx;
+  color: #999;
+  margin-left: 8rpx;
+}
+
+.result-sub {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20rpx;
+}
+
+.result-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-cell-value {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.result-cell-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}

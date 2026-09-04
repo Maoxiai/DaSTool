@@ -46,7 +46,10 @@
         "rc/rc",
         "adc/adc",
         "battery/battery",
-        "color/index"
+        "color/index",
+        "size_converter/index",
+        "date_calc/index",
+        "pomodoro/index"
       ]
     }
   ],

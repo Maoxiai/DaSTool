@@ -13,7 +13,10 @@
         class="tab {{activeCategory === item.id ? 'active' : ''}}"
         bindtap="onSwitchCategory"
         data-id="{{item.id}}"
-      >{{item.name}}</view>
+      >
+        <text class="tab-icon">{{item.icon}}</text>
+        <text class="tab-name">{{item.name}}</text>
+      </view>
     </view>
   </scroll-view>
 

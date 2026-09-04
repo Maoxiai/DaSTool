@@ -92,12 +92,13 @@ Page({
 
   //获取功能列表
   getListInfo() {
-    // 分类 tab：热门 + 有工具的分类（按 CATEGORY 定义顺序）
-    const categories = [{ id: 0, name: '热门' }];
+    // 分类 tab：热门 + 有工具的分类（按 CATEGORY 定义顺序），附 emoji 图标
+    const CATEGORY_ICON = { 0: '🔥', 2: '📐', 3: '🔍', 4: '🧰', 5: '🖼️', 6: '🎮', 7: '🔌' };
+    const categories = [{ id: 0, name: '热门', icon: '🔥' }];
     Object.keys(CATEGORY).forEach(key => {
       const c = CATEGORY[key];
       if (TOOLS.some(t => t.typeId === c.id)) {
-        categories.push({ id: c.id, name: c.name });
+        categories.push({ id: c.id, name: c.name, icon: CATEGORY_ICON[c.id] || '📦' });
       }
     });
 
