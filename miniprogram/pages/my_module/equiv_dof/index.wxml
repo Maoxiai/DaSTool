@@ -1,0 +1,79 @@
+<view class="card">
+  <view class="card-title">对比参数</view>
+
+  <picker mode="selector" range="{{formats}}" value="{{aIndex}}" bindchange="onA">
+    <view class="field-row">
+      <text class="field-label">画幅 A</text>
+      <view class="picker-value">{{formats[aIndex]}} ›</view>
+    </view>
+  </picker>
+
+  <picker mode="selector" range="{{formats}}" value="{{bIndex}}" bindchange="onB">
+    <view class="field-row">
+      <text class="field-label">画幅 B</text>
+      <view class="picker-value">{{formats[bIndex]}} ›</view>
+    </view>
+  </picker>
+
+  <view class="field-row">
+    <text class="field-label">等效焦距（全画幅）</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="digit" value="{{eqFocal}}" data-key="eqFocal" bindinput="onField" />
+      <text class="field-unit">mm</text>
+    </view>
+  </view>
+
+  <view class="field-row">
+    <text class="field-label">光圈 f/</text>
+    <input class="field-input" type="digit" value="{{aperture}}" data-key="aperture" bindinput="onField" />
+  </view>
+
+  <view class="field-row">
+    <text class="field-label">对焦距离</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="digit" value="{{distance}}" data-key="distance" bindinput="onField" />
+      <text class="field-unit">m</text>
+    </view>
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">景深对比（相同视角）</view>
+
+  <view class="result-row">
+    <text class="result-label">{{result.aName}}</text>
+    <text class="result-value">{{result.dofA}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">　实际焦距 / 等效光圈</text>
+    <text class="result-value">{{result.fA}}mm · f/{{result.eqApertureA}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">　清晰范围</text>
+    <text class="result-value">{{result.nearA}} ~ {{result.farA}}</text>
+  </view>
+
+  <view class="divider"></view>
+
+  <view class="result-row">
+    <text class="result-label">{{result.bName}}</text>
+    <text class="result-value">{{result.dofB}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">　实际焦距 / 等效光圈</text>
+    <text class="result-value">{{result.fB}}mm · f/{{result.eqApertureB}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">　清晰范围</text>
+    <text class="result-value">{{result.nearB}} ~ {{result.farB}}</text>
+  </view>
+</view>
+
+<view class="formula-card">
+  <view class="card-title">说明</view>
+  <view class="formula">相同视角下，小画幅需更短焦距，等效光圈更大 → 景深更深</view>
+</view>
+
+<view class="foot-tip">画幅越大，背景虚化能力越强</view>

@@ -1,0 +1,92 @@
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 20rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.field-label {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.picker-value {
+  font-size: 26rpx;
+  color: #4A90E2;
+}
+
+.table-scroll {
+  width: 100%;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row-head {
+  background: #f5f6fa;
+  border-radius: 8rpx;
+}
+
+.cell {
+  min-width: 130rpx;
+  padding: 16rpx 8rpx;
+  font-size: 24rpx;
+  color: #333;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.cell-focal {
+  font-weight: 600;
+  color: #4A90E2;
+}
+
+.row-head .cell {
+  color: #666;
+  font-weight: 600;
+}
+
+.formula-card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 0 20rpx 20rpx;
+  padding: 24rpx;
+}
+
+.formula {
+  font-size: 26rpx;
+  color: #333;
+  padding: 10rpx 0;
+}
+
+.foot-tip {
+  text-align: center;
+  color: #b8bdc9;
+  font-size: 22rpx;
+  padding: 10rpx 0 50rpx;
+}

@@ -1,0 +1,69 @@
+<view class="card">
+  <view class="card-title">镜头参数</view>
+
+  <picker mode="selector" range="{{formats}}" value="{{fIndex}}" bindchange="onFormat">
+    <view class="field-row">
+      <text class="field-label">传感器画幅</text>
+      <view class="picker-value">{{formats[fIndex]}} ›</view>
+    </view>
+  </picker>
+
+  <view class="field-row">
+    <text class="field-label">焦距</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="digit" value="{{focal}}" data-key="focal" bindinput="onField" />
+      <text class="field-unit">mm</text>
+    </view>
+  </view>
+
+  <view class="field-row">
+    <text class="field-label">光圈 f/</text>
+    <input class="field-input" type="digit" value="{{aperture}}" data-key="aperture" bindinput="onField" />
+  </view>
+
+  <view class="field-row">
+    <text class="field-label">对焦距离</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="digit" value="{{distance}}" data-key="distance" bindinput="onField" />
+      <text class="field-unit">m</text>
+    </view>
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">景深结果</view>
+  <view class="result-row">
+    <text class="result-label">超焦距</text>
+    <text class="result-value hyper">{{result.hyper}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">前景深（近界）</text>
+    <text class="result-value">{{result.near}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">后景深（远界）</text>
+    <text class="result-value">{{result.far}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">总景深</text>
+    <text class="result-value">{{result.dof}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">前方清晰范围</text>
+    <text class="result-value">{{result.front}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">后方清晰范围</text>
+    <text class="result-value">{{result.back}}</text>
+  </view>
+</view>
+
+<view class="formula-card">
+  <view class="card-title">公式</view>
+  <view class="formula">超焦距 H = f² / (N·c) + f</view>
+  <view class="formula">c 为弥散圆直径，随画幅增大而增大</view>
+</view>
+
+<view class="foot-tip">对焦在超焦距时，从 H/2 到无穷远均清晰</view>

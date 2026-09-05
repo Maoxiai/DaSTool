@@ -1,0 +1,44 @@
+<view class="card">
+  <view class="card-title">拍摄参数</view>
+
+  <picker mode="selector" range="{{ndStops}}" value="{{ndIndex}}" bindchange="onNd">
+    <view class="field-row">
+      <text class="field-label">ND 滤镜</text>
+      <view class="picker-value">{{ndStops[ndIndex]}} ›</view>
+    </view>
+  </picker>
+
+  <view class="field-row">
+    <text class="field-label">基础快门</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" value="{{shutter}}" data-key="shutter" bindinput="onField" />
+      <text class="field-unit">s</text>
+    </view>
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">加 ND 后曝光时间</view>
+  <view class="result-row">
+    <text class="result-label">基础快门</text>
+    <text class="result-value">{{result.base}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">减光倍数</text>
+    <text class="result-value">{{result.factor}}×</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">延长后快门</text>
+    <text class="result-value highlight">{{result.result}}</text>
+  </view>
+</view>
+
+<view class="formula-card">
+  <view class="card-title">说明</view>
+  <view class="formula">延长后快门 = 基础快门 × 减光倍数</view>
+  <view class="formula">ND1000（10 档）常用于白天拍摄瀑布、云层拉丝</view>
+</view>
+
+<view class="foot-tip">快门输入支持 "1/125" 或秒数，如 "2" 表示 2 秒</view>

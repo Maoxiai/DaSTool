@@ -1,0 +1,33 @@
+<view class="card">
+  <view class="card-title">传感器画幅</view>
+  <picker mode="selector" range="{{formats}}" value="{{fIndex}}" bindchange="onFormat">
+    <view class="field-row">
+      <text class="field-label">画幅</text>
+      <view class="picker-value">{{formats[fIndex]}} ›</view>
+    </view>
+  </picker>
+</view>
+
+<view class="card">
+  <view class="card-title">超焦距速查表（单位：米）</view>
+  <scroll-view scroll-x="true" class="table-scroll">
+    <view class="table">
+      <view class="row row-head">
+        <view class="cell cell-focal">焦距</view>
+        <view class="cell" wx:for="{{apertures}}" wx:key="*this">f/{{item}}</view>
+      </view>
+      <view class="row" wx:for="{{rows}}" wx:key="focal">
+        <view class="cell cell-focal">{{item.focal}}</view>
+        <view class="cell" wx:for="{{item.values}}" wx:for-item="v" wx:key="index">{{v}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="formula-card">
+  <view class="card-title">超焦距公式</view>
+  <view class="formula">H = f² / (N·c) + f</view>
+  <view class="formula">对焦到超焦距 H 时，从 H/2 到无穷远均清晰</view>
+</view>
+
+<view class="foot-tip">风景拍摄常用技巧：对焦在超焦距可获得最大景深</view>

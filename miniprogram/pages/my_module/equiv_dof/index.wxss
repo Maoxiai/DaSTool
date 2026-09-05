@@ -1,0 +1,121 @@
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 20rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.field-row:last-child {
+  border-bottom: none;
+}
+
+.field-label {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.field-input {
+  width: 200rpx;
+  height: 64rpx;
+  background: #f5f6fa;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  font-family: Menlo, Consolas, monospace;
+  text-align: right;
+}
+
+.field-unit {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 10rpx;
+}
+
+.picker-value {
+  font-size: 26rpx;
+  color: #4A90E2;
+}
+
+.error-card {
+  background: #fdecea;
+  color: #e53935;
+  border-radius: 14rpx;
+  margin: 0 20rpx 20rpx;
+  padding: 20rpx 24rpx;
+  font-size: 24rpx;
+}
+
+.result-card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 0 20rpx 20rpx;
+  padding: 36rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.result-title {
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14rpx 0;
+}
+
+.result-label {
+  font-size: 25rpx;
+  color: #666;
+}
+
+.result-value {
+  font-size: 28rpx;
+  color: #4A90E2;
+  font-weight: bold;
+  font-family: Menlo, Consolas, monospace;
+}
+
+.divider {
+  height: 1rpx;
+  background: #f0f0f0;
+  margin: 16rpx 0;
+}
+
+.formula-card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 0 20rpx 20rpx;
+  padding: 24rpx;
+}
+
+.formula {
+  font-size: 26rpx;
+  color: #333;
+  padding: 10rpx 0;
+}
+
+.foot-tip {
+  text-align: center;
+  color: #b8bdc9;
+  font-size: 22rpx;
+  padding: 10rpx 0 50rpx;
+}

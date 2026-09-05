@@ -1,0 +1,91 @@
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 20rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.field-row:last-child {
+  border-bottom: none;
+}
+
+.field-label {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.field-value {
+  font-size: 28rpx;
+  color: #4A90E2;
+  font-family: Menlo, Consolas, monospace;
+}
+
+.result-card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 0 20rpx 20rpx;
+  padding: 36rpx;
+  text-align: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.rc-label {
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 12rpx;
+}
+
+.rc-value {
+  font-size: 64rpx;
+  font-weight: bold;
+  color: #4A90E2;
+}
+
+.scene-chip {
+  display: inline-block;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 8rpx 28rpx;
+  border-radius: 26rpx;
+  margin: 16rpx 0 8rpx;
+}
+
+.rc-sub {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.formula-card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 0 20rpx 20rpx;
+  padding: 24rpx;
+}
+
+.formula {
+  font-size: 26rpx;
+  color: #333;
+  padding: 10rpx 0;
+}
+
+.foot-tip {
+  text-align: center;
+  color: #b8bdc9;
+  font-size: 22rpx;
+  padding: 10rpx 0 50rpx;
+}

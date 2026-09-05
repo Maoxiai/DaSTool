@@ -1,0 +1,40 @@
+<view class="card">
+  <view class="card-title">曝光参数</view>
+
+  <picker mode="selector" range="{{apertures}}" value="{{aIndex}}" bindchange="onAperture">
+    <view class="field-row">
+      <text class="field-label">光圈</text>
+      <view class="field-value">{{apertures[aIndex]}} ›</view>
+    </view>
+  </picker>
+
+  <picker mode="selector" range="{{shutters}}" value="{{sIndex}}" bindchange="onShutter">
+    <view class="field-row">
+      <text class="field-label">快门</text>
+      <view class="field-value">{{shutters[sIndex]}} ›</view>
+    </view>
+  </picker>
+
+  <picker mode="selector" range="{{isos}}" value="{{iIndex}}" bindchange="onIso">
+    <view class="field-row">
+      <text class="field-label">ISO</text>
+      <view class="field-value">{{isos[iIndex]}} ›</view>
+    </view>
+  </picker>
+</view>
+
+<view class="result-card">
+  <view class="rc-label">曝光值 EV</view>
+  <view class="rc-value">{{ev}}</view>
+  <view wx:if="{{scene}}" class="scene-chip" style="background: {{scene.color}};">{{scene.label}}</view>
+  <view wx:if="{{scene}}" class="rc-sub">{{scene.desc}}</view>
+</view>
+
+<view class="formula-card">
+  <view class="card-title">曝光三要素</view>
+  <view class="formula">光圈：进光量，f 值越小进光越多</view>
+  <view class="formula">快门：曝光时间，越慢进光越多</view>
+  <view class="formula">ISO：感光度，越高越亮但噪点越多</view>
+</view>
+
+<view class="foot-tip">EV 以 ISO 100 为基准估算，仅供参考</view>

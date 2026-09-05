@@ -1,0 +1,50 @@
+<view class="card">
+  <view class="card-title">原始照片</view>
+
+  <view class="field-row">
+    <text class="field-label">宽度</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="number" value="{{width}}" data-key="width" bindinput="onField" />
+      <text class="field-unit">px</text>
+    </view>
+  </view>
+
+  <view class="field-row">
+    <text class="field-label">高度</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="number" value="{{height}}" data-key="height" bindinput="onField" />
+      <text class="field-unit">px</text>
+    </view>
+  </view>
+
+  <picker mode="selector" range="{{ratios}}" value="{{rIndex}}" bindchange="onRatio">
+    <view class="field-row">
+      <text class="field-label">目标长宽比</text>
+      <view class="picker-value">{{ratios[rIndex]}} ›</view>
+    </view>
+  </picker>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">裁剪结果</view>
+  <view class="result-row">
+    <text class="result-label">裁剪后尺寸</text>
+    <text class="result-value">{{result.nw}} × {{result.nh}} px</text>
+  </view>
+  <view class="result-row" wx:if="{{result.same}}">
+    <text class="result-label">说明</text>
+    <text class="result-value">比例一致，无需裁剪</text>
+  </view>
+  <view class="result-row" wx:elif="{{result.cutW > 0}}">
+    <text class="result-label">裁剪宽度</text>
+    <text class="result-value">-{{result.cutW}} px</text>
+  </view>
+  <view class="result-row" wx:else>
+    <text class="result-label">裁剪高度</text>
+    <text class="result-value">-{{result.cutH}} px</text>
+  </view>
+</view>
+
+<view class="foot-tip">裁剪保持主体居中，损失画面边缘内容</view>

@@ -1,0 +1,26 @@
+<view class="color-preview" style="background: {{color}};">
+  <view class="color-k">{{kelvin}} K</view>
+  <view class="color-desc">{{desc}}</view>
+</view>
+
+<view class="card">
+  <view class="card-title">色温调节</view>
+  <slider min="1000" max="12000" step="100" value="{{kelvin}}" bindchange="onSlider" bindchanging="onSlider" activeColor="#4A90E2" block-size="24" />
+  <view class="slider-scale">
+    <text>1000K</text>
+    <text>12000K</text>
+  </view>
+</view>
+
+<view class="card">
+  <view class="card-title">常见场景预设</view>
+  <view class="preset-list">
+    <view class="preset" wx:for="{{presets}}" wx:key="name" data-idx="{{index}}" bindtap="onPreset">
+      <view class="preset-swatch" style="background: {{item.hex}};"></view>
+      <text class="preset-name">{{item.name}}</text>
+      <text class="preset-k">{{item.kelvin}}K</text>
+    </view>
+  </view>
+</view>
+
+<view class="foot-tip">白平衡用于校正色偏，使白色还原为真实白色</view>

@@ -1,0 +1,49 @@
+<view class="card">
+  <view class="card-title">镜头参数</view>
+
+  <picker mode="selector" range="{{formats}}" value="{{fIndex}}" bindchange="onFormat">
+    <view class="field-row">
+      <text class="field-label">传感器画幅</text>
+      <view class="picker-value">{{formats[fIndex]}} ›</view>
+    </view>
+  </picker>
+
+  <view class="field-row">
+    <text class="field-label">焦距</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="digit" value="{{focal}}" data-key="focal" bindinput="onField" />
+      <text class="field-unit">mm</text>
+    </view>
+  </view>
+
+  <view class="field-row">
+    <text class="field-label">光圈 f/</text>
+    <input class="field-input" type="digit" value="{{aperture}}" data-key="aperture" bindinput="onField" />
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">最长不拖星快门</view>
+  <view class="result-row">
+    <text class="result-label">等效焦距</text>
+    <text class="result-value">{{result.eqFocal}} mm</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">500 法则</text>
+    <text class="result-value">{{result.t500}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">NPF 法则（推荐）</text>
+    <text class="result-value">{{result.tNpf}}</text>
+  </view>
+</view>
+
+<view class="formula-card">
+  <view class="card-title">公式</view>
+  <view class="formula">500 法则：t = 500 / 等效焦距</view>
+  <view class="formula">NPF 法则：t = (35×光圈 + 30×像素间距) / 焦距</view>
+</view>
+
+<view class="foot-tip">NPF 法则更严格，适合高像素机身；越广角可曝光越久</view>

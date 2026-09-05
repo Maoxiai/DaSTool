@@ -1,0 +1,41 @@
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 20rpx;
+  padding: 28rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-icon {
+  font-size: 56rpx;
+  line-height: 1;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.card-desc {
+  font-size: 25rpx;
+  color: #777;
+  line-height: 1.6;
+}
+
+.foot-tip {
+  text-align: center;
+  color: #b8bdc9;
+  font-size: 22rpx;
+  padding: 10rpx 0 50rpx;
+}

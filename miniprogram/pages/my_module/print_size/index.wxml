@@ -1,0 +1,79 @@
+<view class="card">
+  <view class="card-title">图片参数</view>
+
+  <view class="field-row">
+    <text class="field-label">宽度</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="number" value="{{width}}" data-key="width" bindinput="onField" />
+      <text class="field-unit">px</text>
+    </view>
+  </view>
+
+  <view class="field-row">
+    <text class="field-label">高度</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="number" value="{{height}}" data-key="height" bindinput="onField" />
+      <text class="field-unit">px</text>
+    </view>
+  </view>
+
+  <view class="field-row">
+    <text class="field-label">打印分辨率</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="number" value="{{dpi}}" data-key="dpi" bindinput="onField" />
+      <text class="field-unit">DPI</text>
+    </view>
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">可打印尺寸</view>
+  <view class="result-row">
+    <text class="result-label">英寸</text>
+    <text class="result-value">{{result.wIn}} × {{result.hIn}} in</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">厘米</text>
+    <text class="result-value">{{result.wCm}} × {{result.hCm}} cm</text>
+  </view>
+</view>
+
+<view class="card">
+  <view class="card-title">常用打印参考（300 DPI）</view>
+  <view class="ref-table">
+    <view class="ref-row ref-head">
+      <text class="ref-cell">照片规格</text>
+      <text class="ref-cell">尺寸（cm）</text>
+      <text class="ref-cell">像素</text>
+    </view>
+    <view class="ref-row">
+      <text class="ref-cell">5 寸</text>
+      <text class="ref-cell">12.7 × 8.9</text>
+      <text class="ref-cell">1500 × 1050</text>
+    </view>
+    <view class="ref-row">
+      <text class="ref-cell">6 寸</text>
+      <text class="ref-cell">15.2 × 10.2</text>
+      <text class="ref-cell">1800 × 1200</text>
+    </view>
+    <view class="ref-row">
+      <text class="ref-cell">7 寸</text>
+      <text class="ref-cell">17.8 × 12.7</text>
+      <text class="ref-cell">2100 × 1500</text>
+    </view>
+    <view class="ref-row">
+      <text class="ref-cell">A4</text>
+      <text class="ref-cell">29.7 × 21.0</text>
+      <text class="ref-cell">3508 × 2480</text>
+    </view>
+    <view class="ref-row">
+      <text class="ref-cell">A3</text>
+      <text class="ref-cell">42.0 × 29.7</text>
+      <text class="ref-cell">4961 × 3508</text>
+    </view>
+  </view>
+</view>
+
+<view class="foot-tip">300 DPI 为高质量打印标准；120 DPI 适合普通喷绘</view>

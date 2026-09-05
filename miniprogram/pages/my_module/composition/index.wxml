@@ -1,0 +1,9 @@
+<view class="card" wx:for="{{rules}}" wx:key="name">
+  <view class="card-icon">{{item.icon}}</view>
+  <view class="card-body">
+    <view class="card-name">{{item.name}}</view>
+    <view class="card-desc">{{item.desc}}</view>
+  </view>
+</view>
+
+<view class="foot-tip">构图无定法，多尝试找到最合适的表达</view>

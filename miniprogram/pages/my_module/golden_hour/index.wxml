@@ -1,0 +1,52 @@
+<view class="card">
+  <view class="card-title">地点与日期</view>
+
+  <picker mode="selector" range="{{cities}}" value="{{cIndex}}" bindchange="onCity">
+    <view class="field-row">
+      <text class="field-label">城市</text>
+      <view class="picker-value">{{cities[cIndex]}} ›</view>
+    </view>
+  </picker>
+
+  <picker mode="date" value="{{date}}" bindchange="onDate">
+    <view class="field-row">
+      <text class="field-label">日期</text>
+      <view class="picker-value">{{date}} ›</view>
+    </view>
+  </picker>
+</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">当日光照时段</view>
+  <view class="result-row">
+    <text class="result-label">日出</text>
+    <text class="result-value">{{result.sunrise}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">日落</text>
+    <text class="result-value">{{result.sunset}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">正午（太阳最高）</text>
+    <text class="result-value">{{result.solarNoon}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">黄金时刻（晨）</text>
+    <text class="result-value highlight">{{result.goldenMorning}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">黄金时刻（昏）</text>
+    <text class="result-value highlight">{{result.goldenEvening}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">蓝调时刻（晨）</text>
+    <text class="result-value">{{result.blueMorning}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">蓝调时刻（昏）</text>
+    <text class="result-value">{{result.blueEvening}}</text>
+  </view>
+  <view class="day-length">昼长约 {{result.dayLength}} 小时</view>
+</view>
+
+<view class="foot-tip">黄金时刻光线柔和温暖，蓝调时刻天空呈深蓝，均为人像与风光最佳时段</view>

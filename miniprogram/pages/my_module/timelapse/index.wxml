@@ -1,0 +1,48 @@
+<view class="card">
+  <view class="card-title">拍摄参数</view>
+
+  <view class="field-row">
+    <text class="field-label">成片时长</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="digit" value="{{duration}}" data-key="duration" bindinput="onField" />
+      <text class="field-unit">秒</text>
+    </view>
+  </view>
+
+  <picker mode="selector" range="{{fpsList}}" value="{{fpsIndex}}" bindchange="onFps">
+    <view class="field-row">
+      <text class="field-label">成片帧率</text>
+      <view class="picker-value">{{fpsList[fpsIndex]}} fps ›</view>
+    </view>
+  </picker>
+
+  <view class="field-row">
+    <text class="field-label">拍摄总时长</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="digit" value="{{totalMin}}" data-key="totalMin" bindinput="onField" />
+      <text class="field-unit">分钟</text>
+    </view>
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">延时摄影参数</view>
+  <view class="result-row">
+    <text class="result-label">拍摄张数</text>
+    <text class="result-value">{{result.shots}} 张</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">拍摄间隔</text>
+    <text class="result-value highlight">{{result.interval}} 秒</text>
+  </view>
+</view>
+
+<view class="formula-card">
+  <view class="card-title">公式</view>
+  <view class="formula">张数 = 成片时长 × 帧率</view>
+  <view class="formula">间隔 = 拍摄总时长 / 张数</view>
+</view>
+
+<view class="foot-tip">云层流动建议 3~10 秒间隔，车流 1~3 秒，星空 15~30 秒</view>

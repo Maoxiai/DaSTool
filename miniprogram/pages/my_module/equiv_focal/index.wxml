@@ -1,0 +1,49 @@
+<view class="card">
+  <view class="card-title">镜头参数</view>
+
+  <picker mode="selector" range="{{formats}}" value="{{fIndex}}" bindchange="onFormat">
+    <view class="field-row">
+      <text class="field-label">传感器画幅</text>
+      <view class="picker-value">{{formats[fIndex]}} ›</view>
+    </view>
+  </picker>
+
+  <view class="field-row">
+    <text class="field-label">实际焦距</text>
+    <view style="display: flex; align-items: center;">
+      <input class="field-input" type="digit" value="{{focal}}" data-key="focal" bindinput="onField" />
+      <text class="field-unit">mm</text>
+    </view>
+  </view>
+
+  <view class="field-row">
+    <text class="field-label">实际光圈 f/</text>
+    <input class="field-input" type="digit" value="{{aperture}}" data-key="aperture" bindinput="onField" />
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">等效全画幅</view>
+  <view class="result-row">
+    <text class="result-label">等效焦距</text>
+    <text class="result-value">{{result.eqFocal}} mm</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">等效光圈</text>
+    <text class="result-value">f/{{result.eqAperture}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">裁切系数</text>
+    <text class="result-value">{{result.crop}}×</text>
+  </view>
+</view>
+
+<view class="formula-card">
+  <view class="card-title">说明</view>
+  <view class="formula">等效焦距 = 实际焦距 × 裁切系数</view>
+  <view class="formula">等效光圈 = 实际光圈 × 裁切系数（虚化与进光等效）</view>
+</view>
+
+<view class="foot-tip">等效光圈用于估算景深与虚化，实际进光量不变</view>

@@ -49,7 +49,20 @@
         "color/index",
         "size_converter/index",
         "date_calc/index",
-        "pomodoro/index"
+        "pomodoro/index",
+        "exposure/index",
+        "dof/index",
+        "equiv_focal/index",
+        "nd_filter/index",
+        "composition/index",
+        "star_exposure/index",
+        "golden_hour/index",
+        "white_balance/index",
+        "print_size/index",
+        "hyperfocal/index",
+        "timelapse/index",
+        "equiv_dof/index",
+        "aspect_ratio/index"
       ]
     }
   ],

@@ -16,7 +16,8 @@ const CATEGORY = {
   COMMON: { id: 4, name: '常用工具' },
   IMAGE: { id: 5, name: '图片处理' },
   ENTERTAINMENT: { id: 6, name: '娱乐工具' },
-  EMBEDDED: { id: 7, name: '嵌入式工具' }
+  EMBEDDED: { id: 7, name: '嵌入式工具' },
+  PHOTO: { id: 8, name: '摄影工具' }
 };
 
 /**
@@ -77,7 +78,21 @@ const TOOLS = [
   { path: '/pages/my_module/rc/rc', name: 'RC 时间常数', des: '充放电与滤波频率', icon: '⏳', typeId: 7, typeName: '嵌入式工具', sort: 14, type: 'rc' },
   { path: '/pages/my_module/adc/adc', name: 'ADC 换算', des: '读数与电压互转', icon: '📊', typeId: 7, typeName: '嵌入式工具', sort: 12, type: 'adc' },
   { path: '/pages/my_module/ne555/ne555', name: '555 定时器', des: '无稳态/单稳态', icon: '🕐', typeId: 7, typeName: '嵌入式工具', sort: 10, type: 'ne555' },
-  { path: '/pages/my_module/battery/battery', name: '电池续航', des: '容量与续航估算', icon: '🔋', typeId: 7, typeName: '嵌入式工具', sort: 8, type: 'battery' }
+  { path: '/pages/my_module/battery/battery', name: '电池续航', des: '容量与续航估算', icon: '🔋', typeId: 7, typeName: '嵌入式工具', sort: 8, type: 'battery' },
+  // 摄影工具
+  { path: '/pages/my_module/exposure/index', name: '曝光三要素', des: '光圈 · 快门 · ISO 曝光计算', icon: '📷', typeId: 8, typeName: '摄影工具', sort: 30, type: 'exposure' },
+  { path: '/pages/my_module/dof/index', name: '景深计算器', des: '超焦距 · 前后景深范围', icon: '🔍', typeId: 8, typeName: '摄影工具', sort: 27, type: 'dof' },
+  { path: '/pages/my_module/equiv_focal/index', name: '等效焦距', des: '画幅换算 · 等效焦距与光圈', icon: '🔭', typeId: 8, typeName: '摄影工具', sort: 25, type: 'equiv_focal' },
+  { path: '/pages/my_module/nd_filter/index', name: 'ND滤镜快门', des: 'ND 减光档 · 延长曝光时间', icon: '🕶️', typeId: 8, typeName: '摄影工具', sort: 23, type: 'nd_filter' },
+  { path: '/pages/my_module/composition/index', name: '构图指南', des: '三分法 · 引导线 · 对称等法则', icon: '🖼️', typeId: 8, typeName: '摄影工具', sort: 21, type: 'composition' },
+  { path: '/pages/my_module/star_exposure/index', name: '星空曝光', des: '500/NPF 法则 · 不拖星快门', icon: '🌌', typeId: 8, typeName: '摄影工具', sort: 19, type: 'star_exposure' },
+  { path: '/pages/my_module/golden_hour/index', name: '黄金时刻', des: '日出日落 · 黄金/蓝调时刻', icon: '🌇', typeId: 8, typeName: '摄影工具', sort: 17, type: 'golden_hour' },
+  { path: '/pages/my_module/white_balance/index', name: '白平衡色温', des: '色温预览 · 场景预设', icon: '🌈', typeId: 8, typeName: '摄影工具', sort: 15, type: 'white_balance' },
+  { path: '/pages/my_module/print_size/index', name: '打印尺寸', des: '像素 · DPI · 打印尺寸换算', icon: '🖨️', typeId: 8, typeName: '摄影工具', sort: 13, type: 'print_size' },
+  { path: '/pages/my_module/hyperfocal/index', name: '超焦距速查', des: '焦距 · 光圈 → 超焦距距离', icon: '🎯', typeId: 8, typeName: '摄影工具', sort: 11, type: 'hyperfocal' },
+  { path: '/pages/my_module/timelapse/index', name: '延时摄影', des: '张数 · 间隔时间计算', icon: '⏱️', typeId: 8, typeName: '摄影工具', sort: 9, type: 'timelapse' },
+  { path: '/pages/my_module/equiv_dof/index', name: '画幅景深对比', des: '相同视角 · 两画幅景深差异', icon: '📐', typeId: 8, typeName: '摄影工具', sort: 7, type: 'equiv_dof' },
+  { path: '/pages/my_module/aspect_ratio/index', name: '长宽比裁剪', des: '目标比例 · 裁剪尺寸计算', icon: '✂️', typeId: 8, typeName: '摄影工具', sort: 5, type: 'aspect_ratio' }
 ];
 
 module.exports = {
