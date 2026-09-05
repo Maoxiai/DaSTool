@@ -59,7 +59,6 @@ const TOOLS = [
   // 常用工具
   { path: '/pages/my_module/unit_converter/index', name: '单位换算', des: '单位换算', icon: '/images/unit_converter.svg', typeId: 4, typeName: '常用工具', sort: 38, type: 'unit_converter' },
   { path: '/pages/my_module/color/index', name: '颜色工具', des: 'RGB/HEX 互转 · 色卡 · 配色 · 国风色', icon: '🌈', typeId: 4, typeName: '常用工具', sort: 30, type: 'color' },
-  { path: '/pages/my_module/size_converter/index', name: '尺码换算', des: '鞋码 · 服装尺码', icon: '👟', typeId: 4, typeName: '常用工具', sort: 24, type: 'size_converter' },
   { path: '/pages/my_module/date_calc/index', name: '日期计算器', des: '日期差 · 年龄 · 倒计时', icon: '📅', typeId: 4, typeName: '常用工具', sort: 22, type: 'date_calc' },
   { path: '/pages/my_module/pomodoro/index', name: '番茄钟', des: '专注计时 · 工作/休息', icon: '🍅', typeId: 4, typeName: '常用工具', sort: 21, type: 'pomodoro' },
   { path: '/pages/my_module/qh/index', name: '手机清灰', des: '手机清灰', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExR9HpNEg866bZSnh7p9cqqyItK8sTAicpFn4NBZWzfbeOaZnibVzAibdFA/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 25, type: 'qh' },
@@ -67,7 +66,6 @@ const TOOLS = [
   { path: '/pages/my_module/clock/clock', name: '全屏时钟', des: '全屏时钟', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExvbibmw02f9OkOddEkkl9pLuhKcHPdVFfiaQXDWdzCmD3nFUG3yAS4PrQ/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 17, type: 'clock' },
   { path: '/pages/my_module/zhendong/index', name: '震动', des: '震动', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExqBzjm2pjBddoxUucITxY1MqvnoyZEHOic8aaIzYRnsEdfD4v95deofw/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 15, type: 'zhendong' },
   { path: '/pages/my_module/createQrcode/createQrcode', name: '二维码创建', des: '二维码创建', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExy2ffasI0lpv51nhY5rhoiaQhHzib4CT71SH7Y53Pc28GQmXUbNrlORtA/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 13, type: 'createQrcode' },
-  { path: '/pages/my_module/countDown/countDown', name: '倒计时', des: '倒计时', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExAXfHaTfjFq8Bt5qTQ1zeo2kyianJjRej2ML16LJXh0VagYHGJOUhMLg/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 7, type: 'countDown' },
   { path: '/pages/my_module/scanQrcode/scanQrcode', name: '二维码识别', des: '二维码识别', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExAQFM979ncPl52xQLZYuic72YZF7slqam6gYGtaSAQWQ1BrCJEOXgWPg/0?wx_fmt=png', typeId: 4, typeName: '常用工具', sort: 6, type: 'scanQrcode' },
   // 娱乐工具
   { path: '/pages/my_module/eglfq/index', name: '恶搞理发器', des: '恶搞理发器', icon: 'https://mmbiz.qpic.cn/mmbiz_png/ncTiaSqpEq9TOFqbxMkzsYYukItmBrRExKNPVbnTlttGtic0yvxyGicEhpzMYUC3uv2JgEG76lzv2fuRRnv0nT29Q/0?wx_fmt=png', typeId: 6, typeName: '娱乐工具', sort: 17, type: 'eglfq' },

@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/home/me/index",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/favorites/index"
   ],
   "subPackages": [
     {
@@ -12,6 +13,7 @@
         "money/index",
         "qh/index",
         "calc_relative/index",
+        "relative_map/index",
         "calc/index",
         "unit_converter/index",
         "calc_mortgage/index",
@@ -27,7 +29,6 @@
         "eglfq/index",
         "blind/blind",
         "clock/clock",
-        "countDown/countDown",
         "randomNum/randomNum",
         "phone/phone",
         "oil_price/index",
@@ -53,7 +54,6 @@
         "adc/adc",
         "battery/battery",
         "color/index",
-        "size_converter/index",
         "date_calc/index",
         "pomodoro/index",
         "exposure/index",

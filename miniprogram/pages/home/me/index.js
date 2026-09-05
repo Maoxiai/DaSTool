@@ -1,5 +1,7 @@
 // pages/home/me/index.js
 const DEFAULT_AVATAR = "../../../images/ic_user_img.png";
+const { TOOLS } = require('../../../config/tools.js');
+const favorite = require('../../utils/favorite.js');
 
 const QUOTES = [
   '生活明朗，万物可爱，人间值得。',
@@ -22,7 +24,11 @@ Page({
     headeSrcPath: DEFAULT_AVATAR,
     userName: "",
     dailyQuote: "",
-    darkMode: false
+    darkMode: false,
+    totalCount: 0,
+    favCount: 0,
+    favPreview: [],
+    hasFav: false
   },
   onShareAppMessage: function () {},
   onShareTimeline: function () {},
@@ -41,6 +47,40 @@ Page({
     this.setData({
       darkMode: getApp().globalData.darkMode
     });
+    this.loadStats();
+  },
+
+  // 统计工具数量与收藏
+  loadStats() {
+    const favs = favorite.getFavorites();
+    const favPreview = favs
+      .map(t => TOOLS.find(x => x.type === t))
+      .filter(Boolean)
+      .slice(0, 4)
+      .map(item => Object.assign({}, item, {
+        iconType: item.icon && (item.icon.indexOf('http') === 0 || item.icon.indexOf('/') === 0) ? 'image' : 'emoji'
+      }));
+    this.setData({
+      totalCount: TOOLS.length,
+      favCount: favs.length,
+      favPreview,
+      hasFav: favs.length > 0
+    });
+  },
+
+  // 跳转收藏页
+  goFavorites() {
+    wx.navigateTo({
+      url: '/pages/favorites/index'
+    });
+  },
+
+  // 预览项点击跳转工具
+  goToolFromPreview(e) {
+    const item = e.currentTarget.dataset.id;
+    if (item && item.path) {
+      wx.navigateTo({ url: item.path });
+    }
   },
 
   // 读取本地已保存的用户头像与昵称

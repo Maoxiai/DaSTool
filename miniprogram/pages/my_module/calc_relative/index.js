@@ -23,7 +23,8 @@ Page({
     id14: "=",
     id15: "?",
     isTrue: !1,
-    sex: 1
+    sex: 1,
+    resultAnim: ""
   },
   onLoad: function (t) {
     wx.setNavigationBarTitle({
@@ -102,6 +103,27 @@ Page({
     this.setData({
       screenData: i,
       result: s
+    });
+    this.triggerResultAnim();
+  },
+  triggerResultAnim: function () {
+    var anim = wx.createAnimation({
+      duration: 250,
+      timingFunction: "ease"
+    });
+    anim.scale(1.12).step({
+      duration: 120
+    });
+    anim.scale(1).step({
+      duration: 130
+    });
+    this.setData({
+      resultAnim: anim.export()
+    });
+  },
+  goMap: function () {
+    wx.navigateTo({
+      url: "/pages/my_module/relative_map/index"
     });
   },
   isNull: function (t) {

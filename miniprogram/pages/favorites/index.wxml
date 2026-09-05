@@ -1,0 +1,51 @@
+<view class="container {{darkMode ? 'dark' : ''}}">
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{favCount === 0}}">
+    <view class="empty-icon">⭐</view>
+    <view class="empty-title">还没有收藏工具</view>
+    <view class="empty-desc">在首页点击工具上的 ⭐ 即可收藏</view>
+    <view class="empty-btn" bind:tap="goHome">去首页逛逛</view>
+  </view>
+
+  <block wx:else>
+    <!-- 分类 Tab -->
+    <scroll-view class="tabs" scroll-x="true" enable-flex="true">
+      <view class="tabs-inner">
+        <view
+          wx:for="{{tabs}}"
+          wx:key="id"
+          class="tab {{activeTab === item.id ? 'active' : ''}}"
+          bindtap="switchTab"
+          data-id="{{item.id}}"
+        >
+          <text class="tab-icon">{{item.icon}}</text>
+          <text class="tab-name">{{item.name}}</text>
+          <text class="tab-count">{{item.count}}</text>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 宫格展示 -->
+    <view class="grid">
+      <view
+        class="grid-item"
+        wx:for="{{displayTools}}"
+        wx:for-item="item"
+        wx:key="type"
+        data-id="{{item}}"
+        bind:tap="goTool"
+        hover-class="grid-hover"
+        style="animation-delay: {{item.animDelay}};"
+      >
+        <view class="cell">
+          <view class="grid-icon">
+            <image wx:if="{{item.iconType === 'image'}}" class="grid-img" src="{{item.icon}}"></image>
+            <text wx:else class="grid-emoji">{{item.icon}}</text>
+          </view>
+          <text class="grid-name">{{item.name}}</text>
+        </view>
+        <text class="grid-fav" catchtap="toggleFav" data-type="{{item.type}}">⭐</text>
+      </view>
+    </view>
+  </block>
+</view>

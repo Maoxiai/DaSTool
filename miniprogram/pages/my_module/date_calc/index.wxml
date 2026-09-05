@@ -1,82 +1,96 @@
-<view class="container">
-  <scroll-view class="cat-scroll" scroll-x="true">
-    <view class="cat-list">
-      <view
-        wx:for="{{tabs}}"
-        wx:key="key"
-        class="cat-item {{currentTab === item.key ? 'cat-active' : ''}}"
-        data-key="{{item.key}}"
-        bind:tap="onTabTap">{{item.name}}</view>
+<view class="page {{darkMode ? 'dark' : ''}}">
+  <!-- 分段 tab -->
+  <view class="seg">
+    <view
+      wx:for="{{tabs}}"
+      wx:key="key"
+      class="seg-item {{currentTab === item.key ? 'active' : ''}}"
+      data-key="{{item.key}}"
+      bind:tap="onTabTap"
+    >
+      <text class="seg-icon">{{item.icon}}</text>
+      <text class="seg-text">{{item.name}}</text>
     </view>
-  </scroll-view>
+  </view>
 
   <!-- 日期差 -->
-  <view wx:if="{{currentTab === 'diff'}}">
-    <view class="panel">
-      <text class="panel-title">起始日期</text>
-      <picker mode="date" value="{{diffDate1}}" end="{{endDate}}" bind:change="onDiff1Change">
-        <view class="date-picker">{{diffDate1}} {{diffWd1}} <text class="arrow">▾</text></view>
-      </picker>
+  <view class="panel" wx:if="{{currentTab === 'diff'}}">
+    <view class="fields">
+      <view class="field">
+        <text class="field-label">起始日期</text>
+        <picker mode="date" value="{{diffDate1}}" end="{{endDate}}" bind:change="onDiff1Change">
+          <view class="field-value">{{diffDate1}} <text class="field-extra">{{diffWd1}}</text></view>
+        </picker>
+      </view>
+      <view class="field-sep"></view>
+      <view class="field">
+        <text class="field-label">结束日期</text>
+        <picker mode="date" value="{{diffDate2}}" end="{{endDate}}" bind:change="onDiff2Change">
+          <view class="field-value">{{diffDate2}} <text class="field-extra">{{diffWd2}}</text></view>
+        </picker>
+      </view>
     </view>
 
-    <view class="panel">
-      <text class="panel-title">结束日期</text>
-      <picker mode="date" value="{{diffDate2}}" end="{{endDate}}" bind:change="onDiff2Change">
-        <view class="date-picker">{{diffDate2}} {{diffWd2}} <text class="arrow">▾</text></view>
-      </picker>
-    </view>
-
-    <view class="result-panel">
-      <view>
-        <text class="result-big">{{diffDays}}</text>
-        <text class="result-unit">天</text>
+    <view class="result">
+      <view class="big">
+        <text class="big-num">{{diffDays}}</text>
+        <text class="big-unit">天</text>
       </view>
-      <view class="result-row">
-        <view class="result-cell">
-          <text class="result-cell-value">{{diffWeeks}}</text>
-          <text class="result-cell-label">周</text>
-        </view>
-        <view class="result-cell">
-          <text class="result-cell-value">{{diffMonths}}</text>
-          <text class="result-cell-label">月（约）</text>
-        </view>
-      </view>
+      <text class="sub">约 {{diffWeeks}} 周 · {{diffMonths}} 个月</text>
     </view>
   </view>
 
   <!-- 年龄计算 -->
-  <view wx:if="{{currentTab === 'age'}}">
-    <view class="panel">
-      <text class="panel-title">出生日期</text>
-      <picker mode="date" value="{{birth}}" end="{{endDate}}" bind:change="onBirthChange">
-        <view class="date-picker">{{birth}} <text class="arrow">▾</text></view>
-      </picker>
+  <view class="panel" wx:if="{{currentTab === 'age'}}">
+    <view class="fields">
+      <view class="field">
+        <text class="field-label">出生日期</text>
+        <picker mode="date" value="{{birth}}" end="{{endDate}}" bind:change="onBirthChange">
+          <view class="field-value">{{birth}}</view>
+        </picker>
+      </view>
     </view>
 
-    <view class="result-panel">
-      <view>
-        <text class="result-big">{{age}}</text>
-        <text class="result-unit">岁</text>
+    <view class="result">
+      <view class="big">
+        <text class="big-num">{{age}}</text>
+        <text class="big-unit">岁</text>
       </view>
-      <view class="result-sub">距离下次生日还有 {{daysToNext}} 天</view>
+      <text class="sub">距离下次生日还有 {{daysToNext}} 天</text>
     </view>
   </view>
 
   <!-- 倒计时 -->
-  <view wx:if="{{currentTab === 'countdown'}}">
-    <view class="panel">
-      <text class="panel-title">目标日期</text>
-      <picker mode="date" value="{{target}}" end="{{endDate}}" bind:change="onTargetChange">
-        <view class="date-picker">{{target}} <text class="arrow">▾</text></view>
-      </picker>
+  <view class="panel" wx:if="{{currentTab === 'countdown'}}">
+    <view class="fields">
+      <view class="field">
+        <text class="field-label">目标日期</text>
+        <picker mode="date" value="{{target}}" end="{{endDate}}" bind:change="onTargetChange">
+          <view class="field-value">{{target}}</view>
+        </picker>
+      </view>
     </view>
 
-    <view class="result-panel">
-      <view>
-        <text class="result-big">{{countdownDays}}</text>
-        <text class="result-unit">天</text>
+    <view class="result">
+      <view class="cd-grid">
+        <view class="cd-cell">
+          <view class="cd-num">{{cdDays}}</view>
+          <view class="cd-unit">天</view>
+        </view>
+        <view class="cd-cell">
+          <view class="cd-num">{{cdHours}}</view>
+          <view class="cd-unit">时</view>
+        </view>
+        <view class="cd-cell">
+          <view class="cd-num">{{cdMinutes}}</view>
+          <view class="cd-unit">分</view>
+        </view>
+        <view class="cd-cell">
+          <view class="cd-num">{{cdSeconds}}</view>
+          <view class="cd-unit">秒</view>
+        </view>
       </view>
-      <view class="result-sub">{{countdownDays >= 0 ? '距离目标日期' : '目标日期已过去'}}</view>
+      <text class="sub">{{cdOver ? '目标日期已过去' : '距离目标日期'}}</text>
     </view>
   </view>
 </view>

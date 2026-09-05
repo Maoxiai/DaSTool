@@ -10,6 +10,37 @@
     <view class="quote">{{dailyQuote}}</view>
   </view>
 
+  <!-- 数据统计卡片 -->
+  <view class="stats-card">
+    <view class="stat-item">
+      <view class="stat-num">{{totalCount}}</view>
+      <view class="stat-label">全部工具</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item" bind:tap="goFavorites">
+      <view class="stat-num">{{favCount}}</view>
+      <view class="stat-label">我的收藏</view>
+    </view>
+  </view>
+
+  <!-- 收藏预览 -->
+  <view class="fav-card">
+    <view class="fav-head">
+      <text class="fav-title">我的收藏</text>
+      <text class="fav-more" bind:tap="goFavorites">查看全部 ›</text>
+    </view>
+    <view class="fav-grid" wx:if="{{hasFav}}">
+      <view class="fav-item" wx:for="{{favPreview}}" wx:key="type" data-id="{{item}}" bind:tap="goToolFromPreview">
+        <image wx:if="{{item.iconType === 'image'}}" class="fav-img" src="{{item.icon}}"></image>
+        <text wx:else class="fav-emoji">{{item.icon}}</text>
+        <text class="fav-name">{{item.name}}</text>
+      </view>
+    </view>
+    <view class="fav-empty" wx:else bind:tap="goFavorites">
+      <text class="fav-empty-text">还没有收藏，去首页点 ⭐ 收藏常用工具吧</text>
+    </view>
+  </view>
+
   <!-- 功能列表 -->
   <view class="group">
     <button class="cell" open-type="share" hover-class="cell-hover">

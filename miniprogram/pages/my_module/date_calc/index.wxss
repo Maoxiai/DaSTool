@@ -1,103 +1,213 @@
-.container {
-  padding: 20rpx;
+.page {
+  padding: 32rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #f6f6f6;
 }
 
-.cat-scroll {
-  white-space: nowrap;
+/* 分段 tab */
+.seg {
+  display: flex;
+  background: #fff;
+  border-radius: 18rpx;
+  padding: 8rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
 }
 
-.cat-list {
-  display: inline-flex;
-}
-
-.cat-item {
-  display: inline-block;
-  padding: 12rpx 28rpx;
-  margin-right: 16rpx;
+.seg-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22rpx 0;
+  border-radius: 14rpx;
   font-size: 28rpx;
-  color: #333;
-  background-color: #f2f3f5;
-  border-radius: 40rpx;
+  color: #888;
+  transition: all 0.25s ease;
 }
 
-.cat-active {
+.seg-icon {
+  font-size: 30rpx;
+  margin-right: 8rpx;
+  transition: transform 0.25s ease;
+}
+
+.seg-item.active {
+  background: #ff5f15;
   color: #fff;
-  background-color: #ff5f15;
+  font-weight: 600;
+  box-shadow: 0 4rpx 12rpx rgba(255, 95, 21, 0.3);
 }
 
+.seg-item.active .seg-icon {
+  transform: scale(1.12);
+}
+
+/* 面板入场 */
 .panel {
-  margin-top: 24rpx;
-  padding: 24rpx;
-  background-color: #fff;
-  border-radius: 16rpx;
+  margin-top: 32rpx;
+  animation: fade-up 0.35s ease both;
 }
 
-.panel-title {
-  font-size: 26rpx;
-  color: #999;
+@keyframes fade-up {
+  0% { transform: translateY(16rpx); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
-.date-picker {
-  margin-top: 12rpx;
-  font-size: 34rpx;
-  font-weight: bold;
+/* 日期字段区（白底圆角，行式布局） */
+.fields {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 0 32rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34rpx 0;
+}
+
+.field-label {
+  font-size: 30rpx;
   color: #333;
-  padding: 12rpx 20rpx;
-  background-color: #f2f3f5;
-  border-radius: 12rpx;
-  display: inline-block;
 }
 
-.arrow {
-  color: #999;
-}
-
-.result-panel {
-  margin-top: 24rpx;
-  padding: 30rpx;
-  background-color: #fff;
-  border-radius: 16rpx;
-  text-align: center;
-}
-
-.result-big {
-  font-size: 60rpx;
-  font-weight: bold;
+.field-value {
+  font-size: 30rpx;
+  font-weight: 600;
   color: #ff5f15;
 }
 
-.result-unit {
-  font-size: 28rpx;
+.field-extra {
+  font-size: 24rpx;
   color: #999;
+  font-weight: 400;
   margin-left: 8rpx;
 }
 
-.result-sub {
-  margin-top: 16rpx;
-  font-size: 26rpx;
-  color: #666;
+.field-sep {
+  height: 1rpx;
+  background: #f2f3f5;
 }
 
-.result-row {
+/* 结果区（统一尺寸，浅橙底，居中） */
+.result {
+  margin-top: 32rpx;
+  background: #fff7f0;
+  border-radius: 20rpx;
+  min-height: 340rpx;
   display: flex;
-  justify-content: space-around;
-  margin-top: 20rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
 }
 
-.result-cell {
+.big {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.big-num {
+  font-size: 96rpx;
+  font-weight: bold;
+  color: #ff5f15;
+  line-height: 1;
+  font-family: Menlo, Consolas, monospace;
+}
+
+.big-unit {
+  font-size: 30rpx;
+  color: #ff5f15;
+  margin-left: 10rpx;
+}
+
+.sub {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 24rpx;
+}
+
+/* 倒计时数字块 */
+.cd-grid {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cd-cell {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.result-cell-value {
-  font-size: 34rpx;
+.cd-num {
+  min-width: 96rpx;
+  padding: 0 8rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 44rpx;
   font-weight: bold;
-  color: #333;
+  color: #ff5f15;
+  background: #fff;
+  border-radius: 18rpx;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: Menlo, Consolas, monospace;
+  box-shadow: 0 2rpx 8rpx rgba(255, 95, 21, 0.08);
 }
 
-.result-cell-label {
+.cd-unit {
   font-size: 24rpx;
   color: #999;
-  margin-top: 4rpx;
+  margin-top: 16rpx;
+}
+
+/* 深色模式 */
+.dark {
+  background: #1f1f1f;
+}
+
+.dark .seg,
+.dark .fields {
+  background: #2a2a2a;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.2);
+}
+
+.dark .seg-item {
+  color: #888;
+}
+
+.dark .seg-item.active {
+  color: #fff;
+}
+
+.dark .field-label {
+  color: #e5e5e5;
+}
+
+.dark .field-extra {
+  color: #888;
+}
+
+.dark .field-sep {
+  background: #3a3a3a;
+}
+
+.dark .result {
+  background: #2a2a2a;
+}
+
+.dark .sub {
+  color: #888;
+}
+
+.dark .cd-num {
+  background: #3a3a3a;
+  box-shadow: none;
 }

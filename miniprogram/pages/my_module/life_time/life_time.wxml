@@ -1,13 +1,42 @@
-<view class="my-info">
-  <text class="my-text">2010年第六次全国人口普查，我国人口平均预期寿命大约75岁，也就是900个月，我们用以下30x30的格子来代表人的一生，看看我们一生的时间吧</text>
-</view>
-<view class="page-container">
-  <text class="my-tip">请点击选择出生日期</text>
+<view class="page">
+  <!-- 顶部文案 -->
+  <view class="intro">
+    <text class="intro-title">你的一生，900 个月</text>
+    <text class="intro-desc">每个格子代表一个月，看看你已经走过了多少</text>
+  </view>
+
+  <!-- 出生日期选择 -->
   <picker bindchange="bindDateChange" fields="month" mode="date" value="{{l4}}">
-    <view class="my-picker"> {{l3}} </view>
+    <view class="picker-box">
+      <text class="picker-label">出生日期</text>
+      <text class="picker-value">{{l3}}</text>
+    </view>
   </picker>
-  <canvas disableScroll canvasId="canvas-grid" class="my-canvas" style="width: {{l1}}px; height: {{l1}}px;"></canvas>
-</view>
-<view class="adbt"></view>
-<view style="width: 96%;margin: 20rpx auto;">
+
+  <!-- 统计卡片 -->
+  <view class="stats">
+    <view class="stat">
+      <text class="stat-num stat-passed">{{monthPassed}}</text>
+      <text class="stat-label">已过（月）</text>
+    </view>
+    <view class="stat">
+      <text class="stat-num stat-left">{{monthLeft}}</text>
+      <text class="stat-label">剩余（月）</text>
+    </view>
+    <view class="stat">
+      <text class="stat-num stat-pct">{{percent}}%</text>
+      <text class="stat-label">人生进度</text>
+    </view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress">
+    <view class="progress-bar" style="width: {{percent}}%;"></view>
+  </view>
+
+  <!-- 格子 -->
+  <canvas disableScroll canvasId="canvas-grid" class="canvas" style="width: {{l1}}px; height: {{l1}}px;"></canvas>
+
+  <!-- 寄语 -->
+  <view class="foot">珍惜当下，认真生活 🌱</view>
 </view>

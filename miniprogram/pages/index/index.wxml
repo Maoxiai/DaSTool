@@ -51,21 +51,24 @@
           <text class="card-name">{{item.name}}</text>
           <text class="card-desc">{{item.des}}</text>
         </view>
+        <text class="card-fav" catchtap="toggleFav" data-type="{{item.type}}">{{item.favIcon}}</text>
         <text class="card-arrow">›</text>
       </view>
     </view>
 
-    <!-- 分类：宫格列表 -->
+    <!-- 分类：宫格列表（卡片风格，与收藏页统一） -->
     <view class="items-list-wrap" wx:else>
       <block wx:for="{{classlist}}" wx:for-item="item" wx:key="type">
         <view class="item-list-wrap" data-id="{{item}}" bind:tap="selectTop" hover-class="item-hover" style="animation-delay: {{item.animDelay}};">
-          <view class="item_left">
-            <text></text>
-            <text class="item_level">{{item.count}}</text>
+          <view class="item-card">
+            <view class="item-icon-box">
+              <image wx:if="{{item.iconType === 'image'}}" class="item-img" lazyLoad="{{true}}" src="{{item.icon}}"></image>
+              <text wx:else class="item-emoji">{{item.icon}}</text>
+              <text class="item-fav" catchtap="toggleFav" data-type="{{item.type}}">{{item.favIcon}}</text>
+              <text class="item_level" wx:if="{{item.count}}">{{item.count}}</text>
+            </view>
+            <text class="item_name">{{item.name}}</text>
           </view>
-          <image wx:if="{{item.iconType === 'image'}}" class="imgs data-v-8d1cd75a" lazyLoad="{{true}}" src="{{item.icon}}"></image>
-          <text wx:else class="imgs emoji-icon">{{item.icon}}</text>
-          <text class="item_name">{{item.name}}</text>
         </view>
       </block>
     </view>

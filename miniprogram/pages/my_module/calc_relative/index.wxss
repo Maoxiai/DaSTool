@@ -1,83 +1,193 @@
-page {
-    height: 100%;
-    font-weight: 700;
+.page {
+  padding: 24rpx;
+  min-height: 100vh;
+  background: #f6f6f6;
+  box-sizing: border-box;
 }
 
-.second {
-    background: #e5e5e5;
-    color: #fff;
+/* 关系链 */
+.chain-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx 32rpx;
+  min-height: 120rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  animation: fade-up 0.4s ease both;
 }
 
-.textstyle {
-    font-size: 50rpx;
-    height: 22vh;
-    background-color: #fff;
-    width: 100%;
+.chain-label {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
 }
 
-.result-style{
-    background-color: #fff;
-    width: 100%;
+.chain-text {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333;
+  margin-top: 12rpx;
+  line-height: 1.5;
+  word-break: break-all;
 }
 
-.result-style {
-    font-size: 20px;
-    height: 10vh;
+/* 结果 */
+.result-card {
+  margin-top: 24rpx;
+  background: linear-gradient(135deg, #ff7a3d, #ff5f15);
+  border-radius: 24rpx;
+  padding: 48rpx 32rpx;
+  min-height: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(255, 95, 21, 0.25);
+  animation: fade-up 0.4s 0.06s ease both;
 }
 
-.body-view {
-    height: 7vh;
-    line-height: 7vh;
-    background-color: #f5f5f5;
-    padding: 5rpx 15rpx;
-    display: flex;
-    align-items: center;
-}
-.switch{
-  padding-left: 15rpx;
-  padding-right: 10rpx;
-  margin-top: -8rpx;
+.result-text {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  line-height: 1.4;
 }
 
-.btnGroup {
-    display: flex;
-    flex-direction: row;
+/* 脑图入口 */
+.map-entry {
+  margin-top: 24rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx 32rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  animation: fade-up 0.4s 0.09s ease both;
+  transition: background 0.15s ease;
 }
 
-.item {
-    width: 25%;
-    min-height: 10rpx;
+.map-entry-hover {
+  background: #f5f6fa;
 }
 
-.item,.item2 {
-    margin: 0rpx;
-    border-radius: 0;
-    text-align: center;
-    line-height: 15vh;
-    display: inline-block;
+.map-entry-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
 }
 
-.item2 {
-    width: 50%;
-    min-height: 0rpx;
+.map-entry-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
 }
 
-.orange {
-    color: #fff;
-    border: 0 solid #f5f5f5;
-    background: #f78d1d;
-    font-size: 60rpx;
+.map-entry-arrow {
+  color: #ccc;
+  font-size: 40rpx;
 }
 
-.normal {
-    color: #000;
+/* 性别 */
+.gender {
+  margin-top: 24rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 24rpx 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  animation: fade-up 0.4s 0.12s ease both;
 }
 
-.normal,.normal-orange {
-    border: 1px solid #f5f5f5;
-    background: #fff;
+.gender-label {
+  font-size: 28rpx;
+  color: #333;
 }
 
-.normal-orange {
-    color: #f78d1d;
+.gender-switch {
+  display: flex;
+  align-items: center;
+}
+
+.gender-txt {
+  font-size: 28rpx;
+  color: #999;
+  transition: color 0.2s ease;
+}
+
+.gender-txt.on {
+  color: #ff5f15;
+  font-weight: 600;
+}
+
+.gender-s {
+  margin: 0 12rpx;
+  transform: scale(0.85);
+}
+
+/* 键盘 */
+.keyboard {
+  margin-top: 24rpx;
+  background: #e9ecef;
+  border-radius: 20rpx;
+  padding: 16rpx;
+  animation: fade-up 0.4s 0.18s ease both;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.key {
+  flex: 1;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  background: #fff;
+  border-radius: 14rpx;
+  margin-right: 16rpx;
+  font-size: 34rpx;
+  color: #333;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.key:last-child {
+  margin-right: 0;
+}
+
+.key-hover {
+  transform: scale(0.94);
+  background: #f2f3f5;
+}
+
+.key-func {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.key-danger {
+  color: #ff5f15;
+}
+
+.key-equal {
+  flex: 2;
+  background: linear-gradient(135deg, #ff7a3d, #ff5f15);
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.key-equal.key-hover {
+  background: #e85510;
+}
+
+@keyframes fade-up {
+  0% { transform: translateY(16rpx); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }

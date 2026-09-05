@@ -79,6 +79,116 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* 数据统计卡片 */
+.stats-card {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  padding: 32rpx 0;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #ff5f15;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.stat-divider {
+  width: 1rpx;
+  height: 48rpx;
+  background: #f0f0f0;
+}
+
+/* 收藏预览 */
+.fav-card {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.fav-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.fav-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.fav-more {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.fav-grid {
+  display: flex;
+}
+
+.fav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.fav-img {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 20rpx;
+  background: #fff7f2;
+}
+
+.fav-emoji {
+  font-size: 64rpx;
+  line-height: 1.2;
+}
+
+.fav-name {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 12rpx;
+  max-width: 120rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fav-empty {
+  padding: 20rpx 0;
+}
+
+.fav-empty-text {
+  font-size: 24rpx;
+  color: #b8bdc9;
+}
+
 /* 分组 */
 .group {
   width: 100%;
@@ -155,6 +265,33 @@
 .dark .user-card,
 .dark .group {
   background: #2a2a2a;
+}
+
+.dark .stats-card,
+.dark .fav-card {
+  background: #2a2a2a;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.2);
+}
+
+.dark .stat-label,
+.dark .fav-more {
+  color: #888;
+}
+
+.dark .fav-title {
+  color: #e5e5e5;
+}
+
+.dark .fav-name {
+  color: #999;
+}
+
+.dark .fav-empty-text {
+  color: #666;
+}
+
+.dark .stat-divider {
+  background: #3a3a3a;
 }
 
 .dark .nickname-input,

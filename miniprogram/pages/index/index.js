@@ -1,4 +1,5 @@
 const { TOOLS, CATEGORY } = require('../../config/tools.js');
+const favorite = require('../utils/favorite.js');
 
 Page({
 
@@ -115,6 +116,19 @@ Page({
     this.filterTools();
   },
 
+  // 收藏/取消收藏（星标按钮，catchtap 阻止冒泡）
+  toggleFav(event) {
+    const type = event.currentTarget.dataset.type;
+    if (!type) return;
+    favorite.toggleFavorite(type);
+    const isFav = favorite.isFavorite(type);
+    wx.showToast({
+      title: isFav ? '已收藏' : '已取消收藏',
+      icon: 'none'
+    });
+    this.filterTools();
+  },
+
   //获取功能列表
   getListInfo() {
     // 分类 tab：热门 + 有工具的分类（按 CATEGORY 定义顺序），附 emoji 图标
@@ -188,15 +202,19 @@ Page({
     }
     const countMap = this._countMap || {};
     const medals = { 1: '🥇', 2: '🥈', 3: '🥉' };
+    const favSet = favorite.getFavorites();
     list = list.map((item, index) => {
       const rank = active === 0 ? index + 1 : 0;
+      const fav = favSet.indexOf(item.type) > -1;
       return Object.assign({}, item, {
         iconType: item.icon && (item.icon.indexOf('http') === 0 || item.icon.indexOf('/') === 0) ? 'image' : 'emoji',
         count: countMap[item.type] || 0,
         rank,
         rankText: rank > 0 ? (medals[rank] || rank) : '',
         rankClass: rank > 0 ? (rank <= 3 ? 'rank-medal' : 'rank-n') : '',
-        animDelay: (Math.min(index, 15) * 60) + 'ms'
+        animDelay: (Math.min(index, 15) * 60) + 'ms',
+        fav,
+        favIcon: fav ? '⭐' : '☆'
       });
     });
     this.setData({

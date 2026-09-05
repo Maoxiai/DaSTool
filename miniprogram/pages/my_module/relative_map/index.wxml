@@ -1,0 +1,50 @@
+<view class="page">
+  <view class="legend">
+    <text class="legend-tip">点击节点展开/收起其亲属 · 连线连接上下代</text>
+    <view class="legend-types">
+      <view class="legend-item"><view class="dot dot-direct"></view><text>直系</text></view>
+      <view class="legend-item"><view class="dot dot-collateral"></view><text>旁系</text></view>
+      <view class="legend-item"><view class="dot dot-affinal"></view><text>姻亲</text></view>
+    </view>
+  </view>
+
+  <!-- 可滚动的脑图区域 -->
+  <scroll-view class="map-scroll" scroll-x="true" scroll-y="true">
+    <view class="map-inner" style="width: {{mapW}}px; height: {{mapH}}px;">
+      <!-- 连线 -->
+      <view
+        wx:for="{{lines}}"
+        wx:key="k"
+        class="mline"
+        style="left: {{item.x}}px; top: {{item.y}}px; width: {{item.w}}px; height: {{item.h}}px;"
+      ></view>
+      <!-- 节点 -->
+      <view
+        wx:for="{{nodes}}"
+        wx:key="uid"
+        class="mnode type-{{item.type}} {{item.isRoot ? 'mnode-root' : ''}}"
+        style="left: {{item.x}}px; top: {{item.y}}px;"
+        data-uid="{{item.uid}}"
+        bindtap="onNodeTap"
+        hover-class="mnode-hover"
+      >
+        <text class="mnode-emoji">{{item.emoji}}</text>
+        <text class="mnode-label">{{item.label}}</text>
+        <text wx:if="{{item.hasChildren}}" class="mnode-toggle">{{item.expanded ? '−' : '+'}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 选中节点信息 -->
+  <view class="info-card" wx:if="{{selectedInfo}}">
+    <view class="info-head">
+      <text class="info-title">{{selectedInfo.title}}</text>
+      <text class="info-relation">{{selectedInfo.relation}}</text>
+    </view>
+    <text class="info-desc">{{selectedInfo.desc}}</text>
+  </view>
+  <view class="info-card info-empty" wx:else>
+    <text class="info-title">点击节点</text>
+    <text class="info-desc">展开其亲属 · 查看称呼与关系类型</text>
+  </view>
+</view>

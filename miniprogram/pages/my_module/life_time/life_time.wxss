@@ -1,64 +1,135 @@
-.page-container {
-    display: flex;
-    flex-direction: column;
-    padding: 15rpx;
+.page {
+  padding: 32rpx;
+  min-height: 100vh;
+  background: #f6f8f9;
+  box-sizing: border-box;
 }
 
-.my-info {
-    background: #8ac6d1;
-    color: #3a3a3a;
-    font-size: 28rpx;
-    padding: 10rpx;
+/* 顶部文案 */
+.intro {
+  text-align: center;
+  padding: 16rpx 0 30rpx;
+  animation: fade-up 0.5s ease both;
 }
 
-.xf {
-    bottom: 20%;
+.intro-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #2c3e50;
 }
 
-.my-tip {
-    color: #8a8a8a;
-    font-size: 28rpx;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10rpx;
+.intro-desc {
+  display: block;
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 14rpx;
+  line-height: 1.6;
 }
 
-picker {
-    margin-top: 15rpx;
+/* 出生日期选择 */
+.picker-box {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  animation: fade-up 0.5s 0.08s ease both;
 }
 
-.my-picker {
-    font-size: 62rpx;
-    text-align: center;
-    text-decoration: underline;
+.picker-label {
+  font-size: 28rpx;
+  color: #666;
 }
 
-.my-canvas,.my-share {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20rpx;
+.picker-value {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #8ac6d1;
 }
 
-.my-share {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
+/* 统计卡片 */
+.stats {
+  display: flex;
+  margin-top: 24rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 32rpx 0;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  animation: fade-up 0.5s 0.16s ease both;
 }
 
-.my-share-btn {
-    font-size: 35rpx;
-    margin-left: 0rpx;
-    margin-right: 0rpx;
-    padding: 0rpx;
-    text-align: center;
-    width: 200rpx;
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-button {
-    background-color: #fff;
-    color: #2c2c2c;
+.stat-num {
+  font-size: 46rpx;
+  font-weight: bold;
+  line-height: 1;
+  font-family: Menlo, Consolas, monospace;
 }
 
-button::after {
-    border: none;
+.stat-passed {
+  color: #ff5f15;
+}
+
+.stat-left {
+  color: #8ac6d1;
+}
+
+.stat-pct {
+  color: #ff5f15;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 12rpx;
+}
+
+/* 进度条 */
+.progress {
+  margin-top: 24rpx;
+  height: 20rpx;
+  background: #e8ecef;
+  border-radius: 10rpx;
+  overflow: hidden;
+  animation: fade-up 0.5s 0.24s ease both;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff9f43, #ff5f15);
+  border-radius: 10rpx;
+  transition: width 0.3s ease;
+}
+
+/* 格子 */
+.canvas {
+  display: block;
+  margin: 30rpx auto 0;
+  background: #fff;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+/* 寄语 */
+.foot {
+  text-align: center;
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 32rpx;
+  padding-bottom: 40rpx;
+  animation: fade-up 0.5s 0.32s ease both;
+}
+
+@keyframes fade-up {
+  0% { transform: translateY(16rpx); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
