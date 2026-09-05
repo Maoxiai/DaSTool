@@ -15,6 +15,8 @@ Page({
     activeCategory: 0,
     viewMode: 'card',
     darkMode: false,
+    greeting: '',
+    refresherTriggered: false,
   },
 
   /**
@@ -40,8 +42,31 @@ Page({
   onShow() {
     this.getListInfo()
     this.setData({
-      darkMode: getApp().globalData.darkMode
+      darkMode: getApp().globalData.darkMode,
+      greeting: this.getGreeting()
     })
+  },
+
+  // 按时段问候语
+  getGreeting() {
+    const now = new Date();
+    const h = now.getHours();
+    let text, emoji;
+    if (h < 6) { text = '夜深了'; emoji = '🌙'; }
+    else if (h < 9) { text = '早上好'; emoji = '🌅'; }
+    else if (h < 12) { text = '上午好'; emoji = '☀️'; }
+    else if (h < 14) { text = '中午好'; emoji = '🌞'; }
+    else if (h < 18) { text = '下午好'; emoji = '🌤️'; }
+    else { text = '晚上好'; emoji = '🌙'; }
+    const week = ['日', '一', '二', '三', '四', '五', '六'][now.getDay()];
+    const date = (now.getMonth() + 1) + '月' + now.getDate() + '日 · 星期' + week;
+    return { text, emoji, date };
+  },
+
+  // 下拉刷新：重新拉取热门榜单
+  onRefresh() {
+    this.setData({ refresherTriggered: true });
+    this.loadHotTools();
   },
 
   onShareAppMessage: function () {},
@@ -144,6 +169,7 @@ Page({
       this._countMap = {};
       this._hotTools = fallback;
     }).then(() => {
+      this.setData({ refresherTriggered: false });
       this.filterTools();
     });
   },
@@ -169,7 +195,8 @@ Page({
         count: countMap[item.type] || 0,
         rank,
         rankText: rank > 0 ? (medals[rank] || rank) : '',
-        rankClass: rank > 0 ? (rank <= 3 ? 'rank-medal' : 'rank-n') : ''
+        rankClass: rank > 0 ? (rank <= 3 ? 'rank-medal' : 'rank-n') : '',
+        animDelay: (Math.min(index, 15) * 60) + 'ms'
       });
     });
     this.setData({

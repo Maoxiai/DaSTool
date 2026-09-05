@@ -29,6 +29,12 @@
   background-color: transparent;
   border: none;
   line-height: normal;
+  animation: avatar-breath 3s ease-in-out infinite;
+}
+
+@keyframes avatar-breath {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 95, 21, 0.35); }
+  50% { box-shadow: 0 0 0 18rpx rgba(255, 95, 21, 0.08); }
 }
 
 .avatar-btn::after {
@@ -65,6 +71,12 @@
   font-size: 26rpx;
   color: #999;
   text-align: center;
+  animation: quote-in 0.8s ease;
+}
+
+@keyframes quote-in {
+  0% { opacity: 0; transform: translateY(12rpx); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* 分组 */

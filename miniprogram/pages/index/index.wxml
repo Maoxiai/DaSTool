@@ -4,6 +4,17 @@
     <view style="white-space: pre-wrap;">{{user.extend.topMessage}}</view>
   </view>
 
+  <!-- 按时段问候语 -->
+  <view class="greeting">
+    <view class="greeting-left">
+      <text class="greeting-emoji">{{greeting.emoji}}</text>
+      <view class="greeting-text">
+        <view class="greeting-title">{{greeting.text}}</view>
+        <view class="greeting-date">{{greeting.date}}</view>
+      </view>
+    </view>
+  </view>
+
   <!-- 分类 tab -->
   <scroll-view class="tabs" scroll-x="true" enable-flex="true">
     <view class="tabs-inner">
@@ -21,10 +32,16 @@
   </scroll-view>
 
   <!-- 内容区 -->
-  <scroll-view class="content" scroll-y="true">
+  <scroll-view
+    class="content"
+    scroll-y="true"
+    refresher-enabled="{{true}}"
+    refresher-triggered="{{refresherTriggered}}"
+    bindrefresherrefresh="onRefresh"
+  >
     <!-- 热门：卡片列表 -->
     <view class="card-list" wx:if="{{viewMode === 'card'}}">
-      <view class="card" wx:for="{{classlist}}" wx:key="type" data-id="{{item}}" bind:tap="selectTop">
+      <view class="card" wx:for="{{classlist}}" wx:key="type" data-id="{{item}}" bind:tap="selectTop" hover-class="card-hover" style="animation-delay: {{item.animDelay}};">
         <view class="card-rank {{item.rankClass}}">{{item.rankText}}</view>
         <view class="card-icon">
           <image wx:if="{{item.iconType === 'image'}}" class="card-icon-img" src="{{item.icon}}"></image>
@@ -41,7 +58,7 @@
     <!-- 分类：宫格列表 -->
     <view class="items-list-wrap" wx:else>
       <block wx:for="{{classlist}}" wx:for-item="item" wx:key="type">
-        <view class="item-list-wrap" data-id="{{item}}" bind:tap="selectTop">
+        <view class="item-list-wrap" data-id="{{item}}" bind:tap="selectTop" hover-class="item-hover" style="animation-delay: {{item.animDelay}};">
           <view class="item_left">
             <text></text>
             <text class="item_level">{{item.count}}</text>

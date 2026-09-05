@@ -6,6 +6,49 @@
   overflow: hidden;
 }
 
+/* 按时段问候语 */
+.greeting {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 20rpx 24rpx 0;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.greeting-left {
+  display: flex;
+  align-items: center;
+}
+
+.greeting-emoji {
+  font-size: 60rpx;
+  margin-right: 20rpx;
+  animation: greet-bounce 0.6s ease;
+}
+
+.greeting-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.greeting-date {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+@keyframes greet-bounce {
+  0% { transform: scale(0.4); opacity: 0; }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 /* 分类 tab */
 .tabs {
   flex-shrink: 0;
@@ -30,6 +73,7 @@
   margin-right: 20rpx;
   border-radius: 44rpx;
   background: #f2f3f5;
+  transition: transform 0.2s ease, background 0.25s ease;
 }
 
 .tab:last-child {
@@ -39,6 +83,7 @@
 .tab-icon {
   font-size: 32rpx;
   margin-right: 8rpx;
+  transition: transform 0.25s ease;
 }
 
 .tab-name {
@@ -49,11 +94,22 @@
 .tab.active {
   background: #FF5F15;
   box-shadow: 0 6rpx 18rpx rgba(255, 95, 21, 0.35);
+  animation: tab-pop 0.35s ease;
+}
+
+.tab.active .tab-icon {
+  transform: scale(1.2);
 }
 
 .tab.active .tab-name {
   color: #fff;
   font-weight: 600;
+}
+
+@keyframes tab-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.12); }
+  100% { transform: scale(1); }
 }
 
 /* 工具列表内容区 */
@@ -76,6 +132,18 @@
   padding: 24rpx;
   margin-bottom: 20rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  animation: card-in 0.45s ease both;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-hover {
+  transform: scale(0.97);
+  box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.06);
+}
+
+@keyframes card-in {
+  0% { transform: translateY(24rpx); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 .card-rank {
@@ -96,6 +164,12 @@
   background: transparent;
   font-size: 44rpx;
   line-height: 1;
+  animation: medal-float 2.4s ease-in-out infinite;
+}
+
+@keyframes medal-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6rpx); }
 }
 
 .rank-n {
@@ -197,6 +271,12 @@
   width: 25%;
   color: #333;
   align-items: center;
+  animation: card-in 0.45s ease both;
+  transition: transform 0.15s ease;
+}
+
+.item-hover {
+  transform: scale(0.9);
 }
 
 .item_left {
@@ -274,6 +354,18 @@
 
 .dark .tabs {
   background-color: #1f1f1f;
+}
+
+.dark .greeting {
+  background-color: #1f1f1f;
+}
+
+.dark .greeting-title {
+  color: #e5e5e5;
+}
+
+.dark .greeting-date {
+  color: #888;
 }
 
 .dark .tab {
