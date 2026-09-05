@@ -1,0 +1,98 @@
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 20rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.field-label {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.picker-value {
+  font-size: 26rpx;
+  color: #4A90E2;
+}
+
+.result-card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 0 20rpx 20rpx;
+  padding: 36rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.result-title {
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.result-row:last-child {
+  border-bottom: none;
+}
+
+.result-label {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.result-value {
+  font-size: 30rpx;
+  color: #4A90E2;
+  font-weight: 600;
+}
+
+.term-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.term {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  padding: 16rpx 0;
+}
+
+.term-name {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.term-date {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+
+.foot-tip {
+  text-align: center;
+  color: #b8bdc9;
+  font-size: 22rpx;
+  padding: 10rpx 0 50rpx;
+}

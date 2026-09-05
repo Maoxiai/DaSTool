@@ -33,6 +33,41 @@
   line-height: 1.6;
 }
 
+/* 构图示意图 */
+.demo {
+  position: relative;
+  width: 100%;
+  height: 240rpx;
+  margin-top: 20rpx;
+  border-radius: 12rpx;
+  background: #f7f8fa;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.shape-line {
+  background: #cfd6de;
+}
+
+.shape-dot {
+  background: #ff5f15;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shape-block {
+  background: #c8d6e5;
+}
+
+.shape-frame {
+  border: 4rpx dashed #ff9d6b;
+  background: rgba(255, 157, 107, 0.08);
+}
+
 .foot-tip {
   text-align: center;
   color: #b8bdc9;

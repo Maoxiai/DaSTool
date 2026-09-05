@@ -1,0 +1,22 @@
+<view class="card">
+  <view class="card-title">车牌号</view>
+  <view class="field-row">
+    <input class="field-input" value="{{plate}}" data-key="plate" bindinput="onField" placeholder="如 粤B12345" maxlength="8" />
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">归属地</view>
+  <view class="result-row">
+    <text class="result-label">省份</text>
+    <text class="result-value">{{result.province}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">城市</text>
+    <text class="result-value">{{result.city}}</text>
+  </view>
+</view>
+
+<view class="foot-tip">按车牌首字与城市字母识别，结果仅供参考</view>

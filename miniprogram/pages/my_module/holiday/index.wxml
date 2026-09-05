@@ -1,0 +1,22 @@
+<view class="card">
+  <view class="card-title">选择年份</view>
+  <picker mode="selector" range="{{years}}" value="{{yIndex}}" bindchange="onYear">
+    <view class="field-row">
+      <text class="field-label">年份</text>
+      <view class="picker-value">{{years[yIndex]}} 年 ›</view>
+    </view>
+  </picker>
+</view>
+
+<view class="card" wx:for="{{list}}" wx:key="name">
+  <view class="holiday">
+    <view class="holiday-name">{{item.name}}</view>
+    <view class="holiday-date">{{item.date}}</view>
+    <view class="holiday-meta">
+      <text class="holiday-days">{{item.days}}</text>
+      <text class="holiday-note">{{item.note}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="foot-tip">农历节日日期按农历数据表换算，具体放假以国务院通知为准</view>

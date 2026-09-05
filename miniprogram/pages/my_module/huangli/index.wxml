@@ -1,0 +1,41 @@
+<view class="card">
+  <view class="card-title">选择日期</view>
+  <picker mode="date" value="{{date}}" bindchange="onDate">
+    <view class="field-row">
+      <text class="field-label">日期</text>
+      <view class="picker-value">{{date}} ›</view>
+    </view>
+  </picker>
+</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">当日信息</view>
+  <view class="result-row">
+    <text class="result-label">农历</text>
+    <text class="result-value">{{result.lunar}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">干支纪年</text>
+    <text class="result-value">{{result.ganYear}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">生肖</text>
+    <text class="result-value">{{result.shengxiao}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">临近节气</text>
+    <text class="result-value">{{result.nearestTerm}}</text>
+  </view>
+</view>
+
+<view class="card">
+  <view class="card-title">二十四节气</view>
+  <view class="term-list">
+    <view class="term" wx:for="{{terms}}" wx:key="name">
+      <text class="term-name">{{item.name}}</text>
+      <text class="term-date">{{item.date}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="foot-tip">节气日期为常年平均，实际每年有 1 天左右浮动</view>

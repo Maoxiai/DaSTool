@@ -3,6 +3,9 @@
   <view class="card-body">
     <view class="card-name">{{item.name}}</view>
     <view class="card-desc">{{item.desc}}</view>
+    <view class="demo">
+      <view wx:for="{{item.shapes}}" wx:for-item="s" wx:key="index" class="shape shape-{{s.t}}" style="{{s.s}}"></view>
+    </view>
   </view>
 </view>
 

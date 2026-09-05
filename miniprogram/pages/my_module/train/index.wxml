@@ -1,0 +1,34 @@
+<view class="card">
+  <view class="card-title">输入车次号</view>
+  <view class="field-row">
+    <input class="field-input" value="{{input}}" data-key="input" bindinput="onField" placeholder="如 G1234、K9090" />
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">识别结果</view>
+  <view class="result-row">
+    <text class="result-label">类型</text>
+    <text class="result-value">{{result.name}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">速度等级</text>
+    <text class="result-value">{{result.speed}}</text>
+  </view>
+  <view class="result-desc">{{result.desc}}</view>
+</view>
+
+<view class="card">
+  <view class="card-title">常见车次类型</view>
+  <view class="type-row" wx:for="{{types}}" wx:key="code">
+    <view class="type-code">{{item.code}}</view>
+    <view class="type-body">
+      <view class="type-name">{{item.name}}</view>
+      <view class="type-speed">{{item.speed}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="foot-tip">车次末位奇数为下行、偶数为上行（以铁路部门规定为准）</view>

@@ -1,0 +1,33 @@
+<view class="card">
+  <view class="card-title">行政区划代码</view>
+  <view class="field-row">
+    <input class="field-input" type="number" value="{{code}}" data-key="code" bindinput="onField" placeholder="请输入 6 位代码，如 110101" maxlength="6" />
+  </view>
+</view>
+
+<view class="error-card" wx:if="{{error}}">{{error}}</view>
+
+<view class="result-card" wx:if="{{result}}">
+  <view class="result-title">解析结果</view>
+  <view class="result-row">
+    <text class="result-label">省级</text>
+    <text class="result-value">{{result.province}}</text>
+  </view>
+  <view class="result-row">
+    <text class="result-label">地级市</text>
+    <text class="result-value">{{result.city}}</text>
+  </view>
+  <view class="result-row" wx:if="{{result.county}}">
+    <text class="result-label">县级代码</text>
+    <text class="result-value">{{result.county}}</text>
+  </view>
+</view>
+
+<view class="card">
+  <view class="card-title">代码规则</view>
+  <view class="rule">前 2 位：省级行政区（省/自治区/直辖市）</view>
+  <view class="rule">第 3~4 位：地级市 / 自治州 / 盟</view>
+  <view class="rule">第 5~6 位：县 / 区 / 县级市</view>
+</view>
+
+<view class="foot-tip">与身份证号码前 6 位同源，按公开行政区划代码解析</view>

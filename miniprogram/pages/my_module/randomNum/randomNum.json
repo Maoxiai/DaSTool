@@ -1,7 +1,6 @@
 {
-    "disableScroll": true,
-    "usingComponents": {},
-    "navigationBarBackgroundColor": "#454545",
-    "navigationBarTitleText": "随机数字",
-    "navigationBarTextStyle": "white"
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#f6f6f6",
+  "navigationBarTitleText": "随机乐园",
+  "navigationBarTextStyle": "black"
 }

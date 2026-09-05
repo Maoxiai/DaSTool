@@ -1,9 +1,82 @@
-<view id="numbers">
-  <view id="header">
-    <input bindblur="setNum1" maxlength="4" type="number" value="{{num1}}"></input>
-    <text class="text1">~</text>
-    <input bindblur="setNum2" maxlength="4" type="number" value="{{num2}}"></input>
+<view class="page">
+  <!-- 玩法 tab -->
+  <view class="tabs">
+    <view class="tab {{mode === 'number' ? 'active' : ''}}" data-mode="number" bindtap="switchMode">🔢 随机数</view>
+    <view class="tab {{mode === 'dice' ? 'active' : ''}}" data-mode="dice" bindtap="switchMode">🎲 骰子</view>
+    <view class="tab {{mode === 'coin' ? 'active' : ''}}" data-mode="coin" bindtap="switchMode">🪙 硬币</view>
+    <view class="tab {{mode === 'pick' ? 'active' : ''}}" data-mode="pick" bindtap="switchMode">🎯 抽取</view>
   </view>
-  <view id="result">{{result}}</view>
+
+  <!-- 随机数 -->
+  <view class="panel" wx:if="{{mode === 'number'}}">
+    <view class="range-row">
+      <input class="input" type="number" value="{{num1}}" data-key="num1" bindinput="onField" />
+      <text class="range-sep">~</text>
+      <input class="input" type="number" value="{{num2}}" data-key="num2" bindinput="onField" />
+    </view>
+    <view class="result-box {{rolling ? 'rolling' : ''}}">{{result}}</view>
+  </view>
+
+  <!-- 骰子 -->
+  <view class="panel" wx:if="{{mode === 'dice'}}">
+    <view class="count-row">
+      <text class="label">骰子数量</text>
+      <view class="stepper">
+        <view class="step-btn" bindtap="decDice">−</view>
+        <text class="step-val">{{diceCount}}</text>
+        <view class="step-btn" bindtap="incDice">＋</view>
+      </view>
+    </view>
+    <view class="dice-list {{rolling ? 'rolling' : ''}}">
+      <view class="dice" wx:for="{{diceResults}}" wx:key="index">
+        <text class="dice-symbol">{{diceSymbols[item - 1]}}</text>
+        <text class="dice-num">{{item}}</text>
+      </view>
+    </view>
+    <view class="dice-total">总和 {{diceTotal}}</view>
+  </view>
+
+  <!-- 硬币 -->
+  <view class="panel panel-center" wx:if="{{mode === 'coin'}}">
+    <view class="coin {{rolling ? 'flip' : ''}}">{{coinSymbol}}</view>
+    <view class="coin-side">{{coinSide}}</view>
+  </view>
+
+  <!-- 抽数字 -->
+  <view class="panel" wx:if="{{mode === 'pick'}}">
+    <view class="pick-row">
+      <view class="pick-field">
+        <text class="label">范围</text>
+        <view class="inline-input">
+          <input class="input" type="number" value="{{pickMin}}" data-key="pickMin" bindinput="onField" />
+          <text class="range-sep">~</text>
+          <input class="input" type="number" value="{{pickMax}}" data-key="pickMax" bindinput="onField" />
+        </view>
+      </view>
+      <view class="pick-field">
+        <text class="label">数量</text>
+        <input class="input" type="number" value="{{pickCount}}" data-key="pickCount" bindinput="onField" />
+      </view>
+    </view>
+    <view class="pick-results" wx:if="{{pickResults.length}}">
+      <text class="pick-chip" wx:for="{{pickResults}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 大按钮 -->
+  <view class="go-btn {{rolling ? 'disabled' : ''}}" bindtap="go" hover-class="go-hover">
+    {{mode === 'number' ? '摇一摇' : (mode === 'dice' ? '掷骰子' : (mode === 'coin' ? '抛硬币' : '开始抽取'))}}
+  </view>
+
+  <!-- 历史记录 -->
+  <view class="history" wx:if="{{history.length}}">
+    <view class="history-head">
+      <text class="history-title">最近记录</text>
+      <text class="history-clear" bindtap="clearHistory">清空</text>
+    </view>
+    <view class="history-item" wx:for="{{history}}" wx:key="index">
+      <text class="history-icon">{{item.icon}}</text>
+      <text class="history-text">{{item.text}}</text>
+    </view>
+  </view>
 </view>
-<view catchtap="start" hidden="{{hideBtn}}" id="btn-start">摇</view>

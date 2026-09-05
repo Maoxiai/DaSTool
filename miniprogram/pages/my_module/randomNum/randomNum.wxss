@@ -1,197 +1,303 @@
-#numbers {
-    height: 650rpx;
-    position: absolute;
-    top: 20%;
-    width: 100%;
+.page {
+  min-height: 100vh;
+  padding: 24rpx;
+  box-sizing: border-box;
+  background: #f6f6f6;
 }
 
-.text1 {
-    color: #fff;
+/* 玩法 tab */
+.tabs {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 10rpx;
+  margin-bottom: 24rpx;
 }
 
-button[plain] {
-    border: 0;
-    width: 80px;
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 18rpx 0;
+  font-size: 26rpx;
+  color: #666;
+  border-radius: 12rpx;
+  transition: all 0.25s ease;
 }
 
-#header {
-    display: flex;
-    flex-direction: row;
-    font-size: 50rpx;
-    justify-content: space-between;
-    left: 50%;
-    line-height: 150rpx;
-    margin-left: -300rpx;
-    position: absolute;
-    top: 0;
-    width: 600rpx;
+.tab.active {
+  background: #ff5f15;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4rpx 12rpx rgba(255, 95, 21, 0.35);
 }
 
-#header input {
-    border-radius: 100rpx;
-    height: 150rpx;
-    line-height: 150rpx;
-    width: 150rpx;
+/* 面板 */
+.panel {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 36rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
 }
 
-#header input,#result {
-    background-color: #fff;
-    color: #b9a387;
-    text-align: center;
+.panel-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#result {
-    border-radius: 250rpx;
-    bottom: 0;
-    font-size: 150rpx;
-    height: 500rpx;
-    line-height: 500rpx;
-    margin-left: -250rpx;
-    margin-top: -250rpx;
-    width: 500rpx;
+/* 通用输入 */
+.range-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32rpx;
 }
 
-#btn-start,#result {
-    left: 50%;
-    position: absolute;
+.input {
+  width: 200rpx;
+  height: 80rpx;
+  background: #f5f6fa;
+  border-radius: 12rpx;
+  text-align: center;
+  font-size: 34rpx;
+  font-family: Menlo, Consolas, monospace;
 }
 
-#btn-start {
-    background-color: #fff;
-    border-radius: 75rpx;
-    bottom: 9%;
-    color: #b9a387;
-    font-size: 53rpx;
-    height: 150rpx;
-    line-height: 150rpx;
-    margin-left: -75rpx;
-    text-align: center;
-    width: 150rpx;
+.range-sep {
+  margin: 0 24rpx;
+  font-size: 36rpx;
+  color: #999;
 }
 
-page {
-    background-color: #454545;
-    height: 100%;
+.label {
+  font-size: 26rpx;
+  color: #666;
 }
 
-.icon-back2 {
-    height: 64rpx;
-    left: 40rpx;
-    position: absolute;
-    top: 100rpx;
-    width: 64rpx;
-    z-index: 9999;
+/* 随机数结果 */
+.result-box {
+  height: 280rpx;
+  line-height: 280rpx;
+  text-align: center;
+  font-size: 140rpx;
+  font-weight: bold;
+  color: #ff5f15;
+  background: #fff7f2;
+  border-radius: 20rpx;
+  font-family: Menlo, Consolas, monospace;
 }
 
-.help {
-    bottom: 60rpx;
-    height: 60rpx;
-    position: absolute;
-    right: 10rpx;
-    width: 60rpx;
+.result-box.rolling {
+  animation: shake 0.3s ease infinite;
 }
 
-button {
-    background: transparent;
-    border-radius: 0;
-    padding: 0;
+@keyframes shake {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
 }
 
-button::after,button::before {
-    display: none;
+/* 骰子 */
+.count-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28rpx;
 }
 
-.cu-modal {
-    backface-visibility: hidden;
-    background: rgba(0,0,0,.6);
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    outline: 0;
-    perspective: 2000rpx;
-    pointer-events: none;
-    position: fixed;
-    right: 0;
-    text-align: center;
-    top: 0;
-    transform: scale(1.185);
-    transition: all .3s ease-in-out 0s;
-    z-index: 1110;
+.stepper {
+  display: flex;
+  align-items: center;
 }
 
-.cu-modal::before {
-    content: "\200B";
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
+.step-btn {
+  width: 64rpx;
+  height: 64rpx;
+  background: #f5f6fa;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 64rpx;
+  font-size: 34rpx;
+  color: #333;
 }
 
-.cu-modal.show {
-    opacity: 1;
-    overflow-x: hidden;
-    overflow-y: auto;
-    pointer-events: auto;
-    transform: scale(1);
-    transition-duration: .3s;
+.step-val {
+  min-width: 64rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
 }
 
-.cu-dialog {
-    background-color: #f8f8f8;
-    border-radius: 10rpx;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    overflow: hidden;
-    position: relative;
-    vertical-align: middle;
-    width: 700rpx;
+.dice-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20rpx;
 }
 
-.cu-modal.bottom-modal::before {
-    vertical-align: bottom;
+.dice {
+  width: 100rpx;
+  height: 100rpx;
+  background: #fff7f2;
+  border: 2rpx solid #ffe0cc;
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.cu-modal.bottom-modal .cu-dialog {
-    border-radius: 0;
-    width: 100%;
+.dice-list.rolling .dice {
+  animation: dice-roll 0.3s ease infinite;
 }
 
-.cu-modal.bottom-modal {
-    margin-bottom: -1000rpx;
+@keyframes dice-roll {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(12deg) scale(1.08); }
 }
 
-.cu-modal.bottom-modal.show {
-    margin-bottom: 0;
+.dice-symbol {
+  font-size: 44rpx;
+  line-height: 1;
 }
 
-.cu-modal.drawer-modal {
-    display: flex;
-    transform: scale(1);
+.dice-num {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 4rpx;
 }
 
-.cu-modal.drawer-modal .cu-dialog {
-    border-radius: 0;
-    height: 100%;
-    margin: initial;
-    min-width: 0rpx;
-    transition-duration: .3s;
+.dice-total {
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  margin-top: 24rpx;
+  font-weight: 600;
 }
 
-.cu-modal.drawer-modal.justify-start .cu-dialog {
-    transform: translateX(-100%);
+/* 硬币 */
+.coin {
+  font-size: 180rpx;
+  line-height: 1;
+  margin: 20rpx 0;
 }
 
-.cu-modal.drawer-modal.justify-end .cu-dialog {
-    transform: translateX(100%);
+.coin.flip {
+  animation: coin-flip 0.35s ease infinite;
 }
 
-.cu-modal.drawer-modal.show .cu-dialog {
-    transform: translateX(0);
+@keyframes coin-flip {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
 }
 
-.cu-modal .cu-dialog>.cu-bar:first-child .action {
-    margin-right: 0;
-    min-height: 100rpx;
-    min-width: 100rpx;
+.coin-side {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 抽数字 */
+.pick-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28rpx;
+}
+
+.pick-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.inline-input {
+  display: flex;
+  align-items: center;
+}
+
+.pick-results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pick-chip {
+  padding: 14rpx 28rpx;
+  background: #fff7f2;
+  border: 2rpx solid #ffd9bf;
+  border-radius: 14rpx;
+  margin: 0 14rpx 14rpx 0;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ff5f15;
+}
+
+/* 大按钮 */
+.go-btn {
+  height: 110rpx;
+  line-height: 110rpx;
+  text-align: center;
+  background: linear-gradient(135deg, #ff7a3d, #ff5f15);
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  border-radius: 55rpx;
+  box-shadow: 0 8rpx 20rpx rgba(255, 95, 21, 0.35);
+  transition: transform 0.15s ease;
+}
+
+.go-hover {
+  transform: scale(0.96);
+}
+
+.go-btn.disabled {
+  opacity: 0.6;
+}
+
+/* 历史记录 */
+.history {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin-top: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.history-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.history-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.history-clear {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-icon {
+  margin-right: 16rpx;
+  font-size: 32rpx;
+}
+
+.history-text {
+  font-size: 26rpx;
+  color: #666;
 }
