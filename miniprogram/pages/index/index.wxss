@@ -78,6 +78,31 @@
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
 }
 
+.card-rank {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  font-weight: 600;
+  font-size: 26rpx;
+  color: #fff;
+}
+
+.rank-medal {
+  background: transparent;
+  font-size: 44rpx;
+  line-height: 1;
+}
+
+.rank-n {
+  background: #f2f3f5;
+  color: #999;
+}
+
 .card-icon {
   width: 88rpx;
   height: 88rpx;
@@ -275,6 +300,11 @@
 
 .dark .card-icon {
   background-color: #333;
+}
+
+.dark .rank-n {
+  background-color: #333;
+  color: #888;
 }
 
 .dark .card-name {

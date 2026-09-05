@@ -25,6 +25,7 @@
     <!-- 热门：卡片列表 -->
     <view class="card-list" wx:if="{{viewMode === 'card'}}">
       <view class="card" wx:for="{{classlist}}" wx:key="type" data-id="{{item}}" bind:tap="selectTop">
+        <view class="card-rank {{item.rankClass}}">{{item.rankText}}</view>
         <view class="card-icon">
           <image wx:if="{{item.iconType === 'image'}}" class="card-icon-img" src="{{item.icon}}"></image>
           <text wx:else class="card-emoji">{{item.icon}}</text>

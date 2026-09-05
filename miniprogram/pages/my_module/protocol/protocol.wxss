@@ -38,6 +38,24 @@
   color: #999;
 }
 
+.panel {
+  margin: 20rpx;
+  padding: 24rpx 28rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.03);
+}
+
+.panel-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  padding-left: 16rpx;
+  border-left: 6rpx solid #4A90E2;
+  line-height: 1.2;
+  margin-bottom: 12rpx;
+}
+
 .pin-row {
   display: flex;
   padding: 18rpx 0;

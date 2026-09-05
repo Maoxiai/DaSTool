@@ -122,7 +122,7 @@ Page({
 
   // 异步加载启动次数统计（云端按启动次数排序）
   loadHotTools() {
-    const fallback = this._allTools.slice(0, 10);
+    const fallback = this._allTools.slice(0, 20);
     if (!wx.cloud) {
       this._countMap = {};
       this._hotTools = fallback;
@@ -139,7 +139,7 @@ Page({
       const hotTools = list
         .map(s => this._allTools.find(t => t.type === s.type))
         .filter(Boolean);
-      this._hotTools = hotTools.length ? hotTools : fallback;
+      this._hotTools = hotTools.length ? hotTools.slice(0, 20) : fallback;
     }).catch(() => {
       this._countMap = {};
       this._hotTools = fallback;
@@ -154,17 +154,24 @@ Page({
     let list = this._allTools || [];
     let viewMode = 'grid';
     if (active === 0) {
-      // 热门：优先用云端榜单，无数据时回退 sort 前 10，卡片展示
-      list = (this._hotTools && this._hotTools.length) ? this._hotTools : list.slice(0, 10);
+      // 热门：优先用云端榜单，无数据时回退 sort 前 20，卡片展示
+      list = (this._hotTools && this._hotTools.length) ? this._hotTools : list.slice(0, 20);
       viewMode = 'card';
     } else {
       list = list.filter(t => t.typeId === active);
     }
     const countMap = this._countMap || {};
-    list = list.map(item => Object.assign({}, item, {
-      iconType: item.icon && (item.icon.indexOf('http') === 0 || item.icon.indexOf('/') === 0) ? 'image' : 'emoji',
-      count: countMap[item.type] || 0
-    }));
+    const medals = { 1: '🥇', 2: '🥈', 3: '🥉' };
+    list = list.map((item, index) => {
+      const rank = active === 0 ? index + 1 : 0;
+      return Object.assign({}, item, {
+        iconType: item.icon && (item.icon.indexOf('http') === 0 || item.icon.indexOf('/') === 0) ? 'image' : 'emoji',
+        count: countMap[item.type] || 0,
+        rank,
+        rankText: rank > 0 ? (medals[rank] || rank) : '',
+        rankClass: rank > 0 ? (rank <= 3 ? 'rank-medal' : 'rank-n') : ''
+      });
+    });
     this.setData({
       classlist: list,
       viewMode: viewMode,
