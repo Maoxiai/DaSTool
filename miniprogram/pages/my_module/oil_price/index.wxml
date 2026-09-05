@@ -1,20 +1,62 @@
-<view class="container">
-  <view class="header">
-    <picker range="{{provinces}}" value="{{provinceIndex}}" bind:change="onProvinceChange">
-      <view class="province-picker">{{currentProvince}} <text class="arrow">▾</text></view>
-    </picker>
-    <text class="update-time" wx:if="{{updateTime}}">更新于 {{updateTime}}</text>
+<view class="page">
+  <!-- Hero 头部卡 -->
+  <view class="hero" animation="{{heroAnim}}">
+    <view class="hero-top">
+      <view class="hero-province">
+        <text class="hero-province-name">{{currentProvince}}</text>
+        <text class="hero-province-label">今日油价</text>
+      </view>
+      <picker range="{{provinces}}" value="{{provinceIndex}}" bind:change="onProvinceChange">
+        <view class="hero-switch">
+          <text>切换</text>
+          <text class="hero-switch-arrow">▾</text>
+        </view>
+      </picker>
+    </view>
+    <view class="hero-time" wx:if="{{updateTime}}">
+      <text class="hero-time-dot">●</text>
+      <text>更新于 {{updateTime}}</text>
+    </view>
   </view>
 
+  <!-- 油价卡片列表 -->
   <view class="oil-list" wx:if="{{priceList.length}}">
-    <view class="oil-item" wx:for="{{priceList}}" wx:key="name">
-      <text class="oil-name">{{item.name}}</text>
+    <view
+      class="oil-card"
+      wx:for="{{priceList}}"
+      wx:key="key"
+      style="animation-delay: {{item.animDelay}};"
+    >
+      <view class="oil-left">
+        <text class="oil-icon">{{item.icon}}</text>
+        <view class="oil-info">
+          <text class="oil-name">{{item.name}}</text>
+          <text class="oil-unit">元/升</text>
+        </view>
+      </view>
       <view class="oil-right">
-        <view class="oil-price">￥{{item.price}}/升</view>
-        <view class="oil-change {{item.changeType === 'up' ? 'change-up' : (item.changeType === 'down' ? 'change-down' : 'change-flat')}}">{{item.changeText}}</view>
+        <view class="oil-price">
+          <text class="oil-price-symbol">¥</text>
+          <text class="oil-price-num">{{item.price}}</text>
+        </view>
+        <view class="oil-change change-{{item.changeType}}">
+          <text class="oil-arrow">{{item.arrow}}</text>
+          <text>{{item.changeText}}</text>
+        </view>
       </view>
     </view>
   </view>
 
-  <view class="empty" wx:if="{{!loading && !priceList.length}}">暂无数据，请切换省份或稍后重试</view>
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{!loading && !priceList.length}}">
+    <text class="empty-icon">⛽</text>
+    <text class="empty-text">暂无数据，请切换省份或稍后重试</text>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loading-dot"></view>
+    <view class="loading-dot"></view>
+    <view class="loading-dot"></view>
+  </view>
 </view>

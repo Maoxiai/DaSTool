@@ -8,6 +8,17 @@ const PROVINCES = [
 
 const API_URL = 'https://tmini.net/api/oil-prices';
 
+// 油品图标（按名称关键字匹配）
+function oilIcon(name) {
+  const n = name || '';
+  if (n.indexOf('柴油') !== -1) return '🛢️';
+  if (n.indexOf('98') !== -1) return '🏎️';
+  if (n.indexOf('95') !== -1) return '⛽';
+  if (n.indexOf('92') !== -1) return '🚗';
+  if (n.indexOf('89') !== -1) return '🛵';
+  return '⛽';
+}
+
 Page({
   data: {
     provinces: PROVINCES,
@@ -15,7 +26,10 @@ Page({
     currentProvince: PROVINCES[0],
     updateTime: '',
     priceList: [],
-    loading: false
+    loading: false,
+    listVersion: 0,
+    maxPrice: 0,
+    heroAnim: ''
   },
 
   onLoad() {
@@ -44,6 +58,7 @@ Page({
             updateTime: d.data.update_time || '',
             priceList: this.parsePrices(d.data.prices)
           });
+          this.playHeroAnim();
         } else {
           this.setData({ updateTime: '', priceList: [] });
           wx.showToast({ title: '获取油价失败', icon: 'none' });
@@ -59,6 +74,14 @@ Page({
     });
   },
 
+  // Hero 弹跳动画（数据更新时）
+  playHeroAnim() {
+    const anim = wx.createAnimation({ duration: 500, timingFunction: 'ease' });
+    anim.scale(1.06).step({ duration: 160 });
+    anim.scale(1).step({ duration: 340 });
+    this.setData({ heroAnim: anim.export() });
+  },
+
   // 解析油品价格，并按常用油品顺序排列
   parsePrices(prices) {
     if (!prices) return [];
@@ -67,18 +90,36 @@ Page({
       const change = Number(raw.change || 0);
       let changeText = '--';
       let changeType = 'flat';
+      let arrow = '—';
       if (raw.change !== undefined && raw.change !== null) {
         changeText = (change > 0 ? '+' : '') + change.toFixed(2);
         changeType = change > 0 ? 'up' : (change < 0 ? 'down' : 'flat');
+        arrow = change > 0 ? '↑' : (change < 0 ? '↓' : '—');
       }
       return {
         name: key,
+        icon: oilIcon(key),
         price: raw.price,
         changeText: changeText,
-        changeType: changeType
+        changeType: changeType,
+        arrow: arrow,
+        animDelay: 0
       };
     });
     list.sort((a, b) => this.oilOrder(a.name) - this.oilOrder(b.name));
+
+    // 计算最高价（用于视觉对比条）
+    let maxPrice = 0;
+    list.forEach(it => { maxPrice = Math.max(maxPrice, Number(it.price) || 0); });
+
+    // 错峰延迟 + 唯一 key（切换省份时 listVersion 变化，卡片重新入场）
+    const version = this.data.listVersion + 1;
+    list.forEach((it, i) => {
+      it.animDelay = (i * 80) + 'ms';
+      it.key = version + '_' + i;
+    });
+
+    this.setData({ maxPrice: maxPrice, listVersion: version });
     return list;
   },
 
